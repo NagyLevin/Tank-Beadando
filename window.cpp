@@ -87,18 +87,34 @@ int playerW = 1;
             for (int i = 0; i < vbutton.size();i++) {
 
 
-                 vbutton[i]->draw(10);             //button
-                 vbutton[i]->esemeny(ev);
+                vbutton[i]->draw(10);             //button
+                vbutton[i]->esemeny(ev);
+                vbutton[i]->controllevent(ev);
 
                  for (TankCso* pcs : vtankcso) {
+
+
+
                     if(pcs->_player == playerW){
 
-                         pcs->changer(vbutton[0]->_angle,vbutton[0]->_power);
-                              pcs->esemenyCSO(ev);
 
+                            pcs->changer(vbutton[i]->_angle,vbutton[i]->_power);
+
+                            pcs->esemenyCSO(ev);
+
+
+
+
+
+
+
+                     }
                     }
+
+
+
                 }
-                  }
+
 //button
 
 //textwidget
@@ -143,9 +159,9 @@ int playerW = 1;
                           pcs->esemenyCSO(ev);
 
 
-                          for (int i = 0; i < vbutton.size();i++) {
+                          for (Button * pb : vbutton){
 
-                            vbutton[i]->changer(pcs->_angle,pcs->_power);
+                            pb->changer(pcs->_angle,pcs->_power);
 
                           }
 

@@ -12,14 +12,16 @@ bool _selected = false;
 
 
 public:
-
-    Button( Window *parent,int x, int y, int sx, int sy);
+    string _funkcio = "";
+    Button( Window *parent,int x, int y, int sx, int sy,string funkcio);
 
 
 
         virtual void draw(int szin) override;
         virtual void esemeny(genv::event ev) override;
-            void changer(int angle,int power);
+        void changer(int angle,int power);
+        virtual void controllevent(genv::event ev);
+
 
 };
 

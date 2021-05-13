@@ -46,7 +46,7 @@ else if(ev.keycode == key_up && _power - 1 > -31){
 
 
 //cout << _power <<endl;
-cout << _angle <<endl;
+//cout << _angle <<endl;
 }
 int TankCso::getangle(){
 return _angle;

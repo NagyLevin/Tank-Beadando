@@ -2,8 +2,9 @@
 #include "graphics.hpp"
 #include "iostream"
 using namespace genv;
+using namespace std;
 
-Button::Button(Window* parent, int x, int y, int sx, int sy) : Properties(parent,x,y,sx,sy)
+Button::Button(Window* parent, int x, int y, int sx, int sy,string funkcio) : Properties(parent,x,y,sx,sy), _funkcio(funkcio)
 {
     _parent->ButtonWindow(this);
       _selected = false;
@@ -32,14 +33,61 @@ void Button :: esemeny(event ev){
 if(is_selected(ev.pos_x,ev.pos_y) && ev.type == ev_mouse && ev.button==btn_left ){
     _selected = true;
 
-    _angle = _angle + 10;
-    cout <<_angle <<endl;
+
 
 }
 if(!is_selected(ev.pos_x,ev.pos_y) && ev.type == ev_mouse && ev.button==btn_left) {
    _selected = false;
 
 
+}
+
+}
+
+void Button::controllevent(event ev){
+
+if(_selected == true){
+
+if(_funkcio == "angle+"|| _funkcio == "angle-"){
+
+
+ if(_funkcio == "angle+"){
+
+    _angle = _angle + 10;
+    _selected = false;
+    cout << "test1" << endl;
+}
+
+else if(_funkcio == "angle-"){
+
+    _angle = _angle - 10;
+    _selected = false;
+     cout << "test2" << endl;
+}
+
+
+
+}
+
+if(_funkcio == "power+"|| _funkcio == "power-"){
+ if(_funkcio == "power+"){
+
+    _power = _power + 10;
+    _selected = false;
+     cout << "test3" << endl;
+}
+
+else if(_funkcio == "power-"){
+
+    _power = _power - 10;
+    _selected = false;
+     cout << "test4" << endl;
+}
+
+
+
+
+}
 }
 
 }
