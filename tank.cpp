@@ -15,7 +15,7 @@ void Tank::draw(int szin){
 
 
 gout << move_to(_x,_y) << color(_tankszinR,_tankszinG,_tankszinB) << box(_sx,_sy);
-
+//gout << move_to(_x+_sx/2,_y-_sy) << color(_tankszinR,_tankszinG,_tankszinB) << box(_sx/2,_sy/2);
 
 }
 

@@ -24,8 +24,9 @@ protected:
     vector<TextWidget*> vtextwidget;
     vector<TankCso*> vtankcso;
     int _XX,_YY;
-    int _angleW;
-    int _powerW;
+
+    int _angleW  = 0;
+    int _powerW  = 0;
 
 public:
 

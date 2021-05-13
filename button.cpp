@@ -51,38 +51,37 @@ void Button::controllevent(event ev){
 
 if(_selected == true){
 
-if(_funkcio == "angle+"|| _funkcio == "angle-"){
 
 
- if(_funkcio == "angle+"){
 
-    _angle = _angle + 10;
+ if(_funkcio == "angle+" && _angle + 5 < 51){
+
+    _angle = _angle + 5;
     _selected = false;
     cout << "test1" << endl;
 }
 
-else if(_funkcio == "angle-"){
+ if(_funkcio == "angle-" && _angle - 5 > -51){
 
-    _angle = _angle - 10;
+    _angle = _angle - 5;
     _selected = false;
      cout << "test2" << endl;
 }
 
 
 
-}
 
-if(_funkcio == "power+"|| _funkcio == "power-"){
- if(_funkcio == "power+"){
 
-    _power = _power + 10;
+ if(_funkcio == "power+" && _power + 5 < -1){
+
+    _power = _power + 5;
     _selected = false;
      cout << "test3" << endl;
 }
 
-else if(_funkcio == "power-"){
+ if(_funkcio == "power-" && _power - 5 > -31){
 
-    _power = _power - 10;
+    _power = _power - 5;
     _selected = false;
      cout << "test4" << endl;
 }
@@ -91,9 +90,11 @@ else if(_funkcio == "power-"){
 
 
 }
+
+ //cout << _power <<endl;
 }
 
-}
+
 
 void Button::changer(int angle,int power){
 _angle = angle;

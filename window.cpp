@@ -54,6 +54,7 @@ event ev;
 gin.timer(30);
 int playerW = 1;
 
+
     while(gin >> ev&& ev.keycode != key_escape) {
 
     if(ev.type == ev_timer)
@@ -97,26 +98,48 @@ int playerW = 1;
 
 
                             vbutton[i]->changer(pcs->getangle(),pcs->getpower());
-                            pcs->draw(10);
 
 
-
-                                for (Tank* pt : vtank) {
-
-                              //  pt->draw(10);
-
-
-                                }
 
 
 
 
                      }
+
+
+
+
                     }
 
 
 
+
                 }
+
+                         for (int i = 0; i < vbutton.size();i++) {
+
+                            _angleW = _angleW + vbutton[i]->getangle();
+                            _powerW = _powerW + vbutton[i]->getpower();
+                           //  cout <<_angleW <<endl;
+                         }
+
+                        vtankcso[0]->changer(_angleW,_powerW);
+
+
+
+                        for (Tank* pt : vtank) {
+
+                                pt->draw(10);
+                                _angleW = 0;
+                                _powerW = 0;
+
+                                }
+
+                    for (int i = 0; i < vbutton.size();i++) {
+
+                       // vbutton[i]->changer(_angleW,_powerW);
+
+                    }
 
 //button
 
