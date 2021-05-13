@@ -38,8 +38,8 @@ int main()
     Button(win,100,550,50,50);//power
 
     TextWidget(win,100,470,50,50,"POWER");//power
-     TextWidget(win,230,470,50,50,"ANGLE");//angle
-    TextWidget(win,475,470,50,50,"READY");//angle
+    TextWidget(win,230,470,50,50,"ANGLE");//angle
+    TextWidget(win,475,470,50,50,"READY");//fire
 
     win->event_loop();
 
