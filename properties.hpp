@@ -24,7 +24,7 @@ public:
         virtual void draw(int szin) = 0;
         virtual void esemeny(genv::event ev) = 0;
 
-    //    virtual bool is_focused(){return true;}
+
 };
 
 

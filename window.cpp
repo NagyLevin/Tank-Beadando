@@ -50,8 +50,9 @@ vtankcso.push_back(pcs);
 
 
 void Window :: event_loop() {
-    event ev;
-   gin.timer(30);
+event ev;
+gin.timer(30);
+int playerW = 1;
 
     while(gin >> ev&& ev.keycode != key_escape) {
 
@@ -61,52 +62,64 @@ void Window :: event_loop() {
 
     }
 
-
+ //map
 
             for (Map * pm : vmap) {
 
-                 pm->draw(10);             //map
+                 pm->draw(10);
 
 
              }
+ //map
+
+ //tank
+
                for (Tank* pt : vtank) {
 
                  pt->draw(_angleW);
 
 
              }
-            for (Button* pb : vbutton) {
+ //tank
 
-                 pb->draw(10);             //button
-                 pb->esemeny(ev);
+ //button
+
+            for (int i = 0; i < vbutton.size();i++) {
+
+
+                 vbutton[i]->draw(10);             //button
+                 vbutton[i]->esemeny(ev);
 
                  for (TankCso* pcs : vtankcso) {
-                    if(pcs->_player == 1){
+                    if(pcs->_player == playerW){
 
-                         pcs->changer(pb->_angle,pb->_power);
+                         pcs->changer(vbutton[0]->_angle,vbutton[0]->_power);
                               pcs->esemenyCSO(ev);
 
                     }
                 }
+                  }
+//button
+
+//textwidget
 
 
-
-
-             }
 
               for (TextWidget* pt : vtextwidget) {
 
                  pt->draw(10);
 
              }
+//textwidget
 
+//tankmozgas
 
             if(ev.keycode == 'a' || ev.keycode == 'd'){
 
 
 
                for (Tank* pt : vtank) {
-                    if(pt->_player == 1){
+                    if(pt->_player == playerW){
                           pt->esemeny(ev);  //tank
 
 
@@ -117,17 +130,22 @@ void Window :: event_loop() {
 
             }
             }
+//tankmozgas
+
+//tankcsomozgas
 
         if(ev.keycode == key_left || ev.keycode == key_right || ev.keycode == key_up || ev.keycode == key_down ){
 
 
 
                for (TankCso* pcs : vtankcso) {
-                    if(pcs->_player == 1){
+                    if(pcs->_player == playerW){
                           pcs->esemenyCSO(ev);
-                          for (Button* pb : vbutton) {
 
-                         pb->changer(pcs->_angle,pcs->_power);
+
+                          for (int i = 0; i < vbutton.size();i++) {
+
+                            vbutton[i]->changer(pcs->_angle,pcs->_power);
 
                           }
 
@@ -143,7 +161,7 @@ void Window :: event_loop() {
             }
 
 
-
+//tankcsomozgas
 
 
 
