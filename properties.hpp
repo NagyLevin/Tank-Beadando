@@ -8,7 +8,8 @@ class Properties {
 protected:
     Window *_parent;
     int _x, _y, _sx, _sy ;
-
+     int _power = -10;
+    int _angle = -10;
 
 
 

@@ -23,7 +23,7 @@ void Tank::esemeny(event ev){
 
 if(_player == 1){
 
-  if(ev.keycode == key_right){
+  if(ev.keycode == 'd'){
 
     if(_fuel > 0){
           _x = _x + 2;
@@ -33,7 +33,7 @@ if(_player == 1){
 
 
 }
-else if(ev.keycode == key_left){
+else if(ev.keycode == 'a'){
 
      if(_x -2 > 1 && _fuel > 0){
     _x = _x - 2;
@@ -45,7 +45,7 @@ else if(ev.keycode == key_left){
 
 if(_player == 2){
 
-  if(ev.keycode == key_right){
+  if(ev.keycode == 'd'){
 
     if(_x + 2 < _nagyX -100 && _fuel > 0){
           _x = _x + 2;
@@ -55,7 +55,7 @@ if(_player == 2){
 
 
 }
-else if(ev.keycode == key_left){
+else if(ev.keycode == 'a'){
 
      if(_fuel > 0){
         _x = _x - 2;

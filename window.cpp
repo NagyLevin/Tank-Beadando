@@ -3,7 +3,9 @@
 #include "properties.hpp"
 #include "map.hpp"
 #include "tank.hpp"
+#include "tankcso.hpp"
 #include "button.hpp"
+#include "textwidget.hpp"
 #include <iostream>
 using namespace genv;
 using namespace std;
@@ -34,7 +36,15 @@ void Window :: ButtonWindow(Button *pb){
 vbutton.push_back(pb);
 
 }
+void Window :: TextWidgetWindow(TextWidget *pt){
+vtextwidget.push_back(pt);
 
+}
+
+void Window :: TankCsoWindow(TankCso *pcs){
+vtankcso.push_back(pcs);
+
+}
 
 //vector
 
@@ -70,12 +80,18 @@ void Window :: event_loop() {
                  pb->draw(10);             //button
                  pb->esemeny(ev);
 
+
+
+             }
+
+              for (TextWidget* pt : vtextwidget) {
+
+                 pt->draw(10);
+
              }
 
 
-
-
-            if(ev.keycode == key_left || ev.keycode == key_right){
+            if(ev.keycode == 'a' || ev.keycode == 'd'){
 
 
 
@@ -92,8 +108,22 @@ void Window :: event_loop() {
 
             }
 
+        if(ev.keycode == key_left || ev.keycode == key_right || ev.keycode == key_up || ev.keycode == key_down ){
 
 
+
+               for (TankCso* pcs : vtankcso) {
+                    if(pcs->_player == 1){
+                          pcs->esemenyCSO(ev);             //tank
+                    }
+
+
+
+
+             }
+
+
+            }
 
 
 
