@@ -71,7 +71,7 @@ void Window :: event_loop() {
              }
                for (Tank* pt : vtank) {
 
-                 pt->draw(10);             //map
+                 pt->draw(_angleW);
 
 
              }
@@ -79,6 +79,16 @@ void Window :: event_loop() {
 
                  pb->draw(10);             //button
                  pb->esemeny(ev);
+
+                 for (TankCso* pcs : vtankcso) {
+                    if(pcs->_player == 1){
+
+                         pcs->changer(pb->_angle,pb->_power);
+                              pcs->esemenyCSO(ev);
+
+                    }
+                }
+
 
 
 
@@ -97,8 +107,7 @@ void Window :: event_loop() {
 
                for (Tank* pt : vtank) {
                     if(pt->_player == 1){
-                          pt->esemeny(ev);             //tank
-                    }
+                          pt->esemeny(ev);  //tank
 
 
 
@@ -107,6 +116,7 @@ void Window :: event_loop() {
 
 
             }
+            }
 
         if(ev.keycode == key_left || ev.keycode == key_right || ev.keycode == key_up || ev.keycode == key_down ){
 
@@ -114,7 +124,14 @@ void Window :: event_loop() {
 
                for (TankCso* pcs : vtankcso) {
                     if(pcs->_player == 1){
-                          pcs->esemenyCSO(ev);             //tank
+                          pcs->esemenyCSO(ev);
+                          for (Button* pb : vbutton) {
+
+                         pb->changer(pcs->_angle,pcs->_power);
+
+                          }
+
+
                     }
 
 

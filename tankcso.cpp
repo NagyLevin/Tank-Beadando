@@ -16,7 +16,7 @@ void TankCso::draw(int szin){
 
 
 
-gout << move_to(_x+_sx/2,_y) << color(_tankszinR,_tankszinG,_tankszinB) << line(_angle,_power);
+gout << move_to(_x+_sx/2,_y) << color(_tankszinR,_tankszinG,_tankszinB) << line(_angle+szin,_power);
 
 
 }
@@ -47,4 +47,11 @@ else if(ev.keycode == key_up && _power - 1 > -31){
 
 //cout << _power <<endl;
 cout << _angle <<endl;
+}
+int TankCso::getangle(){
+return _angle;
+}
+void TankCso::changer(int angle,int power){
+_angle = angle;
+_power = power;
 }

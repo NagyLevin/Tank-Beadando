@@ -8,12 +8,14 @@ class Properties {
 protected:
     Window *_parent;
     int _x, _y, _sx, _sy ;
-     int _power = -10;
-    int _angle = -10;
+
 
 
 
 public:
+
+    int _power = -10;
+    int _angle = -10;
 
     Properties( Window *parent,int x, int y, int sx, int sy);
 
@@ -22,7 +24,7 @@ public:
         virtual void draw(int szin) = 0;
         virtual void esemeny(genv::event ev) = 0;
 
-
+    //    virtual bool is_focused(){return true;}
 };
 
 

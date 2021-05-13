@@ -31,6 +31,7 @@ else if(_selected == false){
 void Button :: esemeny(event ev){
 if(is_selected(ev.pos_x,ev.pos_y) && ev.type == ev_mouse && ev.button==btn_left ){
     _selected = true;
+
     _angle = _angle + 10;
     cout <<_angle <<endl;
 
@@ -43,4 +44,8 @@ if(!is_selected(ev.pos_x,ev.pos_y) && ev.type == ev_mouse && ev.button==btn_left
 
 }
 
+void Button::changer(int angle,int power){
+_angle = angle;
+_power = power;
 
+}
