@@ -46,6 +46,9 @@ if(!is_selected(ev.pos_x,ev.pos_y) && ev.type == ev_mouse && ev.button==btn_left
 
 void Button::controllevent(event ev){
 
+
+
+
 if(_selected == true){
 
 if(_funkcio == "angle+"|| _funkcio == "angle-"){
@@ -95,5 +98,17 @@ else if(_funkcio == "power-"){
 void Button::changer(int angle,int power){
 _angle = angle;
 _power = power;
+
+}
+
+int Button::getangle(){
+return _angle;
+
+}
+
+
+
+int Button::getpower(){
+return _power;
 
 }

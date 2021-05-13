@@ -72,15 +72,7 @@ int playerW = 1;
              }
  //map
 
- //tank
 
-               for (Tank* pt : vtank) {
-
-                 pt->draw(_angleW);
-
-
-             }
- //tank
 
  //button
 
@@ -98,12 +90,23 @@ int playerW = 1;
                     if(pcs->_player == playerW){
 
 
-                            pcs->changer(vbutton[i]->_angle,vbutton[i]->_power);
+                            pcs->changer(vbutton[i]->getangle(),vbutton[i]->getpower());
 
                             pcs->esemenyCSO(ev);
 
 
 
+                            vbutton[i]->changer(pcs->getangle(),pcs->getpower());
+                            pcs->draw(10);
+
+
+
+                                for (Tank* pt : vtank) {
+
+                              //  pt->draw(10);
+
+
+                                }
 
 
 
@@ -150,31 +153,7 @@ int playerW = 1;
 
 //tankcsomozgas
 
-        if(ev.keycode == key_left || ev.keycode == key_right || ev.keycode == key_up || ev.keycode == key_down ){
 
-
-
-               for (TankCso* pcs : vtankcso) {
-                    if(pcs->_player == playerW){
-                          pcs->esemenyCSO(ev);
-
-
-                          for (Button * pb : vbutton){
-
-                            pb->changer(pcs->_angle,pcs->_power);
-
-                          }
-
-
-                    }
-
-
-
-
-             }
-
-
-            }
 
 
 //tankcsomozgas

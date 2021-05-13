@@ -19,7 +19,10 @@ public:
 
         virtual void draw(int szin) override;
         virtual void esemeny(genv::event ev) override;
+
         void changer(int angle,int power);
+        int getangle();
+        int getpower();
         virtual void controllevent(genv::event ev);
 
 

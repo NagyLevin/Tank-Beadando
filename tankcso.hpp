@@ -19,6 +19,8 @@ public:
         virtual void esemenyCSO(genv::event ev);
 
         int getangle();
+        int getpower();
+
         void changer(int angle,int power);
 
 

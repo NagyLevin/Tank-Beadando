@@ -35,8 +35,8 @@ int main()
     Button(win,200,500,50,50,"angle-");//angle
 
 
-    Button(win,100,490,50,50,"power+");//power
-    Button(win,100,550,50,50,"power-");//power
+    Button(win,100,490,50,50,"power-");//power
+    Button(win,100,550,50,50,"power+");//power
 
     TextWidget(win,100,470,50,50,"POWER");//power
     TextWidget(win,230,470,50,50,"ANGLE");//angle
