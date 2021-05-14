@@ -139,7 +139,7 @@ int playerW = 1;
 
                            }
 
-                             cout << _powerW <<endl;
+
 
 
 
@@ -215,8 +215,14 @@ int playerW = 1;
 //projectile mozgasa
 
 for (Projectile* pp : vprojectile) {
-pp->draw();
+
+if(vtank[playerW-1]->_player = playerW){
+
+   pp->drawprojectile();
 pp->esemeny(ev);
+}
+
+
 }
 
 //projectile mozgasa
@@ -241,6 +247,31 @@ if(ev.keycode == key_backspace){
 
 
 //playervaltas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

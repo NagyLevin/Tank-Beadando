@@ -2,10 +2,10 @@
 #define PROJECTILE_HPP_INCLUDED
 
 #include "graphics.hpp"
-#include "properties.hpp"
+#include "tankcso.hpp"
 #include "window.hpp"
 
-class Projectile : public Properties {
+class Projectile : public TankCso {
 protected:
 
         int _fly = 0;
@@ -15,12 +15,13 @@ protected:
 
 public:
 
-        Projectile( Window *parent,int x, int y, int sx, int sy);
+        Projectile( Window *parent,int x, int y, int sx, int sy, int player, int nagyX,int nagyY,int tankszinR,int tankszinG,int tankszinB);
 
 
 
         virtual void draw() override;
-        virtual void esemeny(genv::event ev) override;
+         virtual void drawprojectile();
+        virtual void esemeny(genv::event ev);
         void getangle(double angle, double power);
 
 

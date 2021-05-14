@@ -46,7 +46,7 @@ int main()
     TextWidget(win,475,470,50,50,"READY");//fire
     TextWidget(win,770,480,50,50,"FUEL");//fuel
 
-    Projectile(win,100,100,5,5);
+    Projectile(win,X-100,365,65,30,2,X,Y,255,255,0);
 
 
     win->event_loop();
