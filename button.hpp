@@ -8,7 +8,9 @@
 class Button : public Properties {
 protected:
 
-bool _selected = false;
+
+
+
 
 
 public:
@@ -16,11 +18,12 @@ public:
     Button( Window *parent,int x, int y, int sx, int sy,string funkcio);
 
 
-
-        virtual void draw(int szin) override;
+        bool _selected = false;
+        virtual void draw() override;
         virtual void esemeny(genv::event ev) override;
 
         void changer(int angle,int power);
+
         int getangle();
         int getpower();
         virtual void controllevent(genv::event ev);

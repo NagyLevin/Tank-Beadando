@@ -11,7 +11,7 @@ Button::Button(Window* parent, int x, int y, int sx, int sy,string funkcio) : Pr
 
 }
 
-void Button::draw(int szin){
+void Button::draw(){
 
 
 if(_selected == true){
@@ -44,10 +44,11 @@ if(!is_selected(ev.pos_x,ev.pos_y) && ev.type == ev_mouse && ev.button==btn_left
 
 }
 
+
 void Button::controllevent(event ev){
 
 
-
+/*
 
 if(_selected == true){
 
@@ -90,7 +91,7 @@ if(_selected == true){
 
 
 }
-
+*/
  //cout << _power <<endl;
 }
 

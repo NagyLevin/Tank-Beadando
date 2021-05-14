@@ -15,7 +15,7 @@ public:
 
 
 
-        virtual void draw(int szin) override;
+        virtual void draw() override;
         virtual void esemeny(genv::event ev);
 
 

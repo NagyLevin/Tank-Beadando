@@ -12,11 +12,22 @@ TextWidget::TextWidget(Window* parent, int x, int y, int sx, int sy,string szove
 
 }
 
-void TextWidget::draw(int szin){
+void TextWidget::draw(){
 
 
 
     gout << move_to(_x,_y) << color(255,255,255) << text(_szoveg);
+
+
+
+
+}
+
+void TextWidget::drawint(int szin){
+
+
+
+    gout << move_to(_x,_y) << color(255,255,255) << text(to_string(szin));
 
 
 

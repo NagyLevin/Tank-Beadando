@@ -19,3 +19,7 @@ void Properties :: esemeny(event ev){
 
 }
 
+void Properties::draw(){
+
+
+}

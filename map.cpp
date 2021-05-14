@@ -9,7 +9,7 @@ Map::Map(Window* parent, int x, int y, int sx, int sy) : Properties(parent,x,y,s
 
 
 }
-void Map::draw(int szin){
+void Map::draw(){
 
 
 

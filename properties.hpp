@@ -14,14 +14,14 @@ protected:
 
 public:
 
-    int _power = -10;
-    int _angle = -10;
+    int _power = 0;
+    int _angle = 0;
 
     Properties( Window *parent,int x, int y, int sx, int sy);
 
 
         virtual bool is_selected(int mouse_x, int mouse_y);
-        virtual void draw(int szin) = 0;
+        virtual void draw();
         virtual void esemeny(genv::event ev) = 0;
 
 

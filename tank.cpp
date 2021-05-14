@@ -9,7 +9,7 @@ Tank::Tank(Window* parent, int x, int y, int sx, int sy, int player,int nagyX, i
 _fuel = 100;
 
 }
-void Tank::draw(int szin){
+void Tank::draw(){
 
 
 

@@ -11,12 +11,12 @@ TankCso::TankCso(Window* parent, int x, int y, int sx, int sy, int player,int na
 
 
 }
-void TankCso::draw(int szin){
+void TankCso::draw(){
 
 
 
 
-gout << move_to(_x+_sx/2,_y) << color(_tankszinR,_tankszinG,_tankszinB) << line(_angle+szin,_power);
+gout << move_to(_x+_sx/2,_y) << color(_tankszinR,_tankszinG,_tankszinB) << line(_angle,_power);
 
 
 }

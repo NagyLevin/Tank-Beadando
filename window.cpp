@@ -67,7 +67,7 @@ int playerW = 1;
 
             for (Map * pm : vmap) {
 
-                 pm->draw(10);
+                 pm->draw();
 
 
              }
@@ -80,9 +80,9 @@ int playerW = 1;
             for (int i = 0; i < vbutton.size();i++) {
 
 
-                vbutton[i]->draw(10);             //button
+                vbutton[i]->draw();             //button
                 vbutton[i]->esemeny(ev);
-                vbutton[i]->controllevent(ev);
+              //  vbutton[i]->controllevent(ev);
 
                  for (TankCso* pcs : vtankcso) {
 
@@ -91,13 +91,13 @@ int playerW = 1;
                     if(pcs->_player == playerW){
 
 
-                            pcs->changer(vbutton[i]->getangle(),vbutton[i]->getpower());
+                           // pcs->changer(vbutton[i]->getangle(),vbutton[i]->getpower());
 
                             pcs->esemenyCSO(ev);
 
 
 
-                            vbutton[i]->changer(pcs->getangle(),pcs->getpower());
+                         //   vbutton[i]->changer(pcs->getangle(),pcs->getpower());
 
 
 
@@ -116,11 +116,52 @@ int playerW = 1;
 
                 }
 
+               _angleW = vtankcso[0]->getangle();
+                 _powerW = vtankcso[0]->getpower();
+
                          for (int i = 0; i < vbutton.size();i++) {
 
-                            _angleW = _angleW + vbutton[i]->getangle();
-                            _powerW = _powerW + vbutton[i]->getpower();
+                          //  _angleW = _angleW + vbutton[i]->getangle();
+                          //  _powerW = _powerW + vbutton[i]->getpower();
                            //  cout <<_angleW <<endl;
+
+                           if(vbutton[i]->_selected == true){
+
+                            if(vbutton[i]->_funkcio == "angle+"){
+
+                                _angleW = _angleW + 5;
+                                vbutton[i]->_selected = false;
+
+                            }
+                            if(vbutton[i]->_funkcio == "angle-"){
+
+                                _angleW = _angleW - 5;
+                                vbutton[i]->_selected = false;
+
+                            }
+                             if(vbutton[i]->_funkcio == "power-"){
+
+                                _powerW = _powerW - 5;
+                                vbutton[i]->_selected = false;
+
+                            }
+                               if(vbutton[i]->_funkcio == "power+"){
+
+                                _powerW = _powerW + 5;
+                                vbutton[i]->_selected = false;
+
+                            }
+
+
+
+
+                           }
+
+                             cout << _angleW <<endl;
+
+
+
+
                          }
 
                         vtankcso[0]->changer(_angleW,_powerW);
@@ -129,17 +170,12 @@ int playerW = 1;
 
                         for (Tank* pt : vtank) {
 
-                                pt->draw(10);
-                                _angleW = 0;
-                                _powerW = 0;
+                                pt->draw();
+
 
                                 }
 
-                    for (int i = 0; i < vbutton.size();i++) {
 
-                       // vbutton[i]->changer(_angleW,_powerW);
-
-                    }
 
 //button
 
@@ -149,7 +185,7 @@ int playerW = 1;
 
               for (TextWidget* pt : vtextwidget) {
 
-                 pt->draw(10);
+                 pt->draw();
 
              }
 //textwidget
