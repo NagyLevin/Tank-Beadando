@@ -6,6 +6,7 @@
 #include "tankcso.hpp"
 #include "button.hpp"
 #include "textwidget.hpp"
+#include "projectile.hpp"
 #include <math.h>
 #include <iostream>
 using namespace genv;
@@ -44,6 +45,11 @@ vtextwidget.push_back(px);
 
 void Window :: TankCsoWindow(TankCso *pcs){
 vtankcso.push_back(pcs);
+
+}
+
+void Window :: ProjectileWindow(Projectile *pp){
+vprojectile.push_back(pp);
 
 }
 
@@ -161,7 +167,7 @@ int playerW = 1;
 
                  px->drawpower(((_powerW/-31)*100)+4);
 
-                 px->drawangle(180-(90+(atan(_angleW/_powerW)*180)/3.14));
+                 px->drawangle(180-(90+(atan(_angleW/_powerW)*180)/M_PI));
 
                  px->drawfuel(vtank[playerW-1]->getfuel());
              }
@@ -206,10 +212,35 @@ int playerW = 1;
 //tankcsomozgas
 
 
+//projectile mozgasa
+
+for (Projectile* pp : vprojectile) {
+pp->draw();
+pp->esemeny(ev);
+}
+
+//projectile mozgasa
 
 
+//playervaltas
+
+if(ev.keycode == key_backspace){
+
+    if(playerW == 1){
+
+        playerW = 2;
+    }
+
+   else if(playerW == 2){
+
+        playerW = 1;
+    }
 
 
+}
+
+
+//playervaltas
 
 
 

@@ -11,18 +11,21 @@ class Tank;
 class Button;
 class TextWidget;
 class TankCso;
+class Projectile;
 //forward deklaraciok
 using namespace std;
 using namespace genv;
 
 class Window{
 protected:
-   vector<Properties*> vproperties;
-   vector<Map*> vmap;
+    vector<Properties*> vproperties;
+    vector<Map*> vmap;
     vector<Tank*> vtank;
     vector<Button*> vbutton;
     vector<TextWidget*> vtextwidget;
     vector<TankCso*> vtankcso;
+    vector<Projectile*> vprojectile;
+
     int _XX,_YY;
 
     double _angleW  = 0;
@@ -41,6 +44,7 @@ public:
     void ButtonWindow(Button *pb);
     void TextWidgetWindow(TextWidget *px);
     void TankCsoWindow(TankCso *pcs);
+    void ProjectileWindow(Projectile *pp);
 
     //widgetek
 

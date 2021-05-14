@@ -5,9 +5,11 @@
 #include "tank.hpp"
 #include "tankcso.hpp"
 #include "button.hpp"
+#include "textwidget.hpp"
+#include "projectile.hpp"
 #include <vector>
 #include <iostream>
-#include "textwidget.hpp"
+
 
 using namespace std;
 using namespace genv;
@@ -31,7 +33,7 @@ int main()
 
     Button(win,450,480,90,90,"tuz");
 
-     Button(win,260,500,50,50,"angle+");//angle
+    Button(win,260,500,50,50,"angle+");//angle
     Button(win,200,500,50,50,"angle-");//angle
 
 
@@ -43,6 +45,10 @@ int main()
     TextWidget(win,230,470,50,50,"ANGLE");//angle
     TextWidget(win,475,470,50,50,"READY");//fire
     TextWidget(win,770,480,50,50,"FUEL");//fuel
+
+    Projectile(win,100,100,5,5);
+
+
     win->event_loop();
 
 
