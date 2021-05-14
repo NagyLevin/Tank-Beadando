@@ -6,6 +6,7 @@
 #include "tankcso.hpp"
 #include "button.hpp"
 #include "textwidget.hpp"
+#include <math.h>
 #include <iostream>
 using namespace genv;
 using namespace std;
@@ -160,7 +161,9 @@ int playerW = 1;
 
                  px->drawpower(((_powerW/-31)*100)+4);
 
-                 px->drawangle((_angleW*3.6));
+                 px->drawangle(180-(90+(atan(_angleW/_powerW)*180)/3.14));
+
+                 px->drawfuel(vtank[playerW-1]->getfuel());
              }
 //textwidget
 

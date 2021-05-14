@@ -68,4 +68,6 @@ else if(ev.keycode == 'a'){
 
 
 }
-
+int Tank::getfuel(){
+return _fuel;
+}

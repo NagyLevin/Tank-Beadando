@@ -43,6 +43,17 @@ void TextWidget::drawangle(int ertek){
 
 
 }
+void TextWidget::drawfuel(int ertek){
+
+
+
+    gout << color(255,255,255) << move_to(700,540) << text(to_string(ertek)) << text("l");
+
+
+
+
+}
+
 
 void TextWidget :: esemeny(event ev){
 

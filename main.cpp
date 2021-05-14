@@ -37,11 +37,12 @@ int main()
 
     Button(win,100,490,50,50,"power-");//power
     Button(win,100,550,50,50,"power+");//power
+    Button(win,750,500,70,70,"fuel");//power
 
     TextWidget(win,100,470,50,50,"POWER");//power
     TextWidget(win,230,470,50,50,"ANGLE");//angle
     TextWidget(win,475,470,50,50,"READY");//fire
-
+    TextWidget(win,770,480,50,50,"FUEL");//fuel
     win->event_loop();
 
 
