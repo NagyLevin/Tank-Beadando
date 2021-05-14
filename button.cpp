@@ -45,58 +45,6 @@ if(!is_selected(ev.pos_x,ev.pos_y) && ev.type == ev_mouse && ev.button==btn_left
 }
 
 
-void Button::controllevent(event ev){
-
-
-/*
-
-if(_selected == true){
-
-
-
-
- if(_funkcio == "angle+" && _angle + 5 < 51){
-
-    _angle = _angle + 5;
-    _selected = false;
-    cout << "test1" << endl;
-}
-
- if(_funkcio == "angle-" && _angle - 5 > -51){
-
-    _angle = _angle - 5;
-    _selected = false;
-     cout << "test2" << endl;
-}
-
-
-
-
-
- if(_funkcio == "power+" && _power + 5 < -1){
-
-    _power = _power + 5;
-    _selected = false;
-     cout << "test3" << endl;
-}
-
- if(_funkcio == "power-" && _power - 5 > -31){
-
-    _power = _power - 5;
-    _selected = false;
-     cout << "test4" << endl;
-}
-
-
-
-
-}
-*/
- //cout << _power <<endl;
-}
-
-
-
 void Button::changer(int angle,int power){
 _angle = angle;
 _power = power;

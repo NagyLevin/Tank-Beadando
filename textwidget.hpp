@@ -18,7 +18,8 @@ public:
 
 
         virtual void draw() override;
-        void drawint(int szin);
+        void drawpower(int ertek);
+        void drawangle(int ertek);
         virtual void esemeny(genv::event ev) override;
 
 

@@ -25,8 +25,8 @@ protected:
     vector<TankCso*> vtankcso;
     int _XX,_YY;
 
-    int _angleW  = 0;
-    int _powerW  = 0;
+    double _angleW  = 0;
+    double _powerW  = 0;
 
 public:
 
@@ -39,7 +39,7 @@ public:
     void MapWindow(Map *pm);
     void TankWindow(Tank *pt);
     void ButtonWindow(Button *pb);
-    void TextWidgetWindow(TextWidget *pt);
+    void TextWidgetWindow(TextWidget *px);
     void TankCsoWindow(TankCso *pcs);
 
     //widgetek

@@ -26,7 +26,7 @@ public:
 
         int getangle();
         int getpower();
-        virtual void controllevent(genv::event ev);
+
 
 
 };

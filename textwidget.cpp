@@ -23,11 +23,21 @@ void TextWidget::draw(){
 
 }
 
-void TextWidget::drawint(int szin){
+void TextWidget::drawpower(int ertek){
 
 
 
-    gout << move_to(_x,_y) << color(255,255,255) << text(to_string(szin));
+    gout << color(255,255,255) << move_to(50,550) << text(to_string(ertek)) << text("%");
+
+
+
+
+}
+void TextWidget::drawangle(int ertek){
+
+
+
+    gout << color(255,255,255) << move_to(240,570) << text(to_string(ertek)) << text("*");
 
 
 

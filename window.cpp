@@ -36,8 +36,8 @@ void Window :: ButtonWindow(Button *pb){
 vbutton.push_back(pb);
 
 }
-void Window :: TextWidgetWindow(TextWidget *pt){
-vtextwidget.push_back(pt);
+void Window :: TextWidgetWindow(TextWidget *px){
+vtextwidget.push_back(px);
 
 }
 
@@ -73,81 +73,56 @@ int playerW = 1;
              }
  //map
 
+ //tankok kirajzolasa
 
+      for (Tank* pt : vtank) {
 
- //button
-
-            for (int i = 0; i < vbutton.size();i++) {
-
-
-                vbutton[i]->draw();             //button
-                vbutton[i]->esemeny(ev);
-              //  vbutton[i]->controllevent(ev);
-
-                 for (TankCso* pcs : vtankcso) {
-
-
-
-                    if(pcs->_player == playerW){
-
-
-                           // pcs->changer(vbutton[i]->getangle(),vbutton[i]->getpower());
-
-                            pcs->esemenyCSO(ev);
-
-
-
-                         //   vbutton[i]->changer(pcs->getangle(),pcs->getpower());
-
-
-
-
-
-
-                     }
-
-
-
-
-                    }
-
-
+            pt->draw();
 
 
                 }
 
-               _angleW = vtankcso[0]->getangle();
-                 _powerW = vtankcso[0]->getpower();
+//tankok kirajzolasa
+
+ //button
+
+
+
+
+
+                            _angleW = vtankcso[playerW-1]->getangle();
+                            _powerW = vtankcso[playerW-1]->getpower();
 
                          for (int i = 0; i < vbutton.size();i++) {
 
-                          //  _angleW = _angleW + vbutton[i]->getangle();
-                          //  _powerW = _powerW + vbutton[i]->getpower();
-                           //  cout <<_angleW <<endl;
+
+                                vbutton[i]->draw();             //button
+                                vbutton[i]->esemeny(ev);
+
 
                            if(vbutton[i]->_selected == true){
 
-                            if(vbutton[i]->_funkcio == "angle+"){
+                            if(vbutton[i]->_funkcio == "angle+" && _angleW + 5 < 51){
 
                                 _angleW = _angleW + 5;
                                 vbutton[i]->_selected = false;
 
                             }
-                            if(vbutton[i]->_funkcio == "angle-"){
+                            if(vbutton[i]->_funkcio == "angle-" && _angleW -5 > -51){
 
                                 _angleW = _angleW - 5;
                                 vbutton[i]->_selected = false;
 
                             }
-                             if(vbutton[i]->_funkcio == "power-"){
+                             if(vbutton[i]->_funkcio == "power+" && _powerW + 5 < -1){
 
-                                _powerW = _powerW - 5;
+                                _powerW = _powerW + 5;
                                 vbutton[i]->_selected = false;
 
                             }
-                               if(vbutton[i]->_funkcio == "power+"){
+                               if(vbutton[i]->_funkcio == "power-" && _powerW - 5 > -31){
 
-                                _powerW = _powerW + 5;
+                                _powerW = _powerW - 5;
                                 vbutton[i]->_selected = false;
 
                             }
@@ -157,23 +132,18 @@ int playerW = 1;
 
                            }
 
-                             cout << _angleW <<endl;
+                             cout << _powerW <<endl;
 
 
 
 
                          }
 
-                        vtankcso[0]->changer(_angleW,_powerW);
+                        vtankcso[playerW-1]->changer(_angleW,_powerW);
 
 
 
-                        for (Tank* pt : vtank) {
 
-                                pt->draw();
-
-
-                                }
 
 
 
@@ -183,10 +153,14 @@ int playerW = 1;
 
 
 
-              for (TextWidget* pt : vtextwidget) {
+              for (TextWidget* px : vtextwidget) {
 
-                 pt->draw();
+                 px->draw();
 
+
+                 px->drawpower(((_powerW/-31)*100)+4);
+
+                 px->drawangle((_angleW*3.6));
              }
 //textwidget
 
@@ -211,6 +185,17 @@ int playerW = 1;
 //tankmozgas
 
 //tankcsomozgas
+
+
+                      for (TankCso* pcs : vtankcso) {
+
+
+
+                    if(pcs->_player == playerW){
+                            pcs->esemenyCSO(ev);
+
+                    }
+                    }
 
 
 
