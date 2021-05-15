@@ -8,9 +8,9 @@
 class Projectile : public TankCso {
 protected:
 
-        int _flyX = 0;
-        int _flyY = 0;
-
+        double _flyX = 0;
+        double _flyY = 0;
+        double _ido = 0;
 
 
 

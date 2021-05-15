@@ -14,8 +14,8 @@ protected:
 
 public:
     int _x, _y, _sx, _sy ;
-    int _power = -10;
-    int _angle = -10;
+    double _power = -10;
+    double _angle = -10;
 
     Properties( Window *parent,int x, int y, int sx, int sy);
 
