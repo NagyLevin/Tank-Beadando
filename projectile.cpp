@@ -53,11 +53,13 @@ void Projectile :: esemeny(event ev){
 
 //if(ev.keycode == key_enter){
 
-_flyX = _flyX + (_angle*_power)/10 ;
-_flyY =  _flyY + (_angle*_power)/10 ;
+_flyX = _flyX - sin(_angle)*_power/2 ; //radian vagy fok????????
+_flyY =  _flyY + cos(_angle)*_power/2 ;
 
 
-cout << _angle <<endl;
+cout << "angle: " << _angle <<endl;
+
+cout << "power: " << _power <<endl;
 //}
 
 
