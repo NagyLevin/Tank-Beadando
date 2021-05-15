@@ -31,6 +31,12 @@ protected:
     double _angleW  = 0;
     double _powerW  = 0;
     bool _selectedW = false;
+
+    //game
+
+    bool jatek = true;
+
+
 public:
 
 
@@ -45,10 +51,12 @@ public:
     void TextWidgetWindow(TextWidget *px);
     void TankCsoWindow(TankCso *pcs);
     void ProjectileWindow(Projectile *pp);
+    void Gamestarter(Window * win);
+
 
     //widgetek
 
-    void event_loop();
+    void event_loop(Window * win);
 
 
 };

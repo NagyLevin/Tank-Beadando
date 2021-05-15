@@ -51,14 +51,42 @@ vtankcso.push_back(pcs);
 
 
 
+
+void Window::Gamestarter(Window * win){
+
+    Map(win,1,400,_XX-1,50); //map alja/ honnan / milyen magasságban / hova /vastagsag
+    Tank(win,50,365,65,30,1,_XX,_YY,255,0,0);
+    Tank(win,_XX-100,365,65,30,2,_XX,_YY,255,255,0);
+
+    TankCso(win,50,365,65,30,1,_XX,_YY,255,0,0);
+    TankCso(win,_XX-100,365,65,30,2,_XX,_YY,255,255,0);
+
+    Button(win,450,480,90,90,"tuz");
+
+    Button(win,260,500,50,50,"angle+");//angle
+    Button(win,200,500,50,50,"angle-");//angle
+
+
+    Button(win,100,490,50,50,"power-");//power
+    Button(win,100,550,50,50,"power+");//power
+    Button(win,750,500,70,70,"fuel");//power
+
+    TextWidget(win,100,470,50,50,"POWER");//power
+    TextWidget(win,230,470,50,50,"ANGLE");//angle
+    TextWidget(win,475,470,50,50,"READY");//fire
+    TextWidget(win,770,480,50,50,"FUEL");//fuel
+
+    win->event_loop(win);
+}
+
 //vector
 
 
-void Window :: event_loop() {
+void Window :: event_loop(Window * win) {
 event ev;
 gin.timer(30);
 int playerW = 1;
-Window  * winwin = new Window(_XX,_YY);
+//Window  * win = new Window(_XX,_YY);
 
     while(gin >> ev&& ev.keycode != key_escape) {
 
@@ -67,6 +95,8 @@ Window  * winwin = new Window(_XX,_YY);
         gout << move_to(0,0) <<color(0,0,0) << box(_XX,_YY); //torles
 
     }
+
+ //if(jatek == true){
 
  //map
 
@@ -235,7 +265,7 @@ _selectedW = true;
 
 if(ev.keycode == key_enter || _selectedW == true){
 
-Projectile *pp = new Projectile(winwin,vtankcso[playerW-1]->_x+vtankcso[playerW-1]->_sx/2+_angleW,vtankcso[playerW-1]->_y+_powerW,65,30,2,_XX,_YY,vtankcso[playerW-1]->_tankszinR,vtankcso[playerW-1]->_tankszinG,vtankcso[playerW-1]->_tankszinB);
+Projectile *pp = new Projectile(win,vtankcso[playerW-1]->_x+vtankcso[playerW-1]->_sx/2+_angleW,vtankcso[playerW-1]->_y+_powerW,65,30,2,_XX,_YY,vtankcso[playerW-1]->_tankszinR,vtankcso[playerW-1]->_tankszinG,vtankcso[playerW-1]->_tankszinB);
 
 vprojectile.push_back(pp);
 _selectedW = false;
@@ -271,7 +301,7 @@ if(ev.keycode == key_backspace){
 //playervaltas
 
 
-
+//} //jatek
 
 
 
