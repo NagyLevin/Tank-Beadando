@@ -7,7 +7,7 @@ using namespace std;
 
 Projectile::Projectile(Window *parent,int x, int y, int sx, int sy, int player, int nagyX,int nagyY,int tankszinR,int tankszinG,int tankszinB) : TankCso(parent,x,y,sx,sy,player,nagyX,nagyY,tankszinR,tankszinG,tankszinB)
 {
-    _parent->ProjectileWindow(this);
+   // _parent->ProjectileWindow(this);
 
 
 }
@@ -47,8 +47,8 @@ void Projectile :: esemeny(event ev){
 
 //if(ev.keycode == key_enter){
 
-_flyX = _flyX +  sin(_angle)*_power ;
-_flyY = _flyY +  sin(_angle)*_power ;
+_flyX = _flyX + sin(_angle)*_power ;
+_flyY = _flyY + sin(_angle)*_power ;
 
 //}
 

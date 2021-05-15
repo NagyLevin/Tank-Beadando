@@ -10,6 +10,7 @@ protected:
 
 public:
 
+
     TankCso( Window *parent,int x, int y, int sx, int sy, int player, int nagyX,int nagyY,int tankszinR,int tankszinG,int tankszinB);
 
 

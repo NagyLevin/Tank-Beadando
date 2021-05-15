@@ -47,12 +47,12 @@ void Window :: TankCsoWindow(TankCso *pcs){
 vtankcso.push_back(pcs);
 
 }
-
+/*
 void Window :: ProjectileWindow(Projectile *pp){
 vprojectile.push_back(pp);
 
 }
-
+*/
 //vector
 
 
@@ -60,7 +60,7 @@ void Window :: event_loop() {
 event ev;
 gin.timer(30);
 int playerW = 1;
-
+Window  * winwin = new Window(_XX,_YY);
 
     while(gin >> ev&& ev.keycode != key_escape) {
 
@@ -216,14 +216,28 @@ int playerW = 1;
 
 for (Projectile* pp : vprojectile) {
 
-if(vtank[playerW-1]->_player = playerW){
+//if(vtank[playerW-1]->_player = playerW){
 
-   pp->drawprojectile();
+pp->drawprojectile();
 pp->esemeny(ev);
-}
+//}
 
 
 }
+
+if(ev.keycode == key_enter){
+
+Projectile *pp = new Projectile(winwin,vtankcso[playerW-1]->_x+vtankcso[playerW-1]->_sx/2+_angleW,vtankcso[playerW-1]->_y+_powerW,65,30,2,_XX,_YY,vtankcso[playerW-1]->_tankszinR,vtankcso[playerW-1]->_tankszinG,vtankcso[playerW-1]->_tankszinB);
+
+vprojectile.push_back(pp);
+
+
+}
+
+
+
+
+
 
 //projectile mozgasa
 
