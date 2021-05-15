@@ -30,7 +30,7 @@ protected:
 
     double _angleW  = 0;
     double _powerW  = 0;
-
+    bool _selectedW = false;
 public:
 
 

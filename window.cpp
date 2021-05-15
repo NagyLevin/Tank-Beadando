@@ -50,13 +50,6 @@ vtankcso.push_back(pcs);
 
 
 
-/*
-void Window :: ProjectileWindow(Projectile *pp){
-vprojectile.push_back(pp);
-
-}
-*/
-
 
 //vector
 
@@ -230,16 +223,25 @@ pp->getpangle(_angleW,_powerW);
 
 }
 
-//for(Button * pb : vbutton){
-if(ev.keycode == key_enter ){//|| (pb->_funkcio == "tuz" && pb->_selected == true)){   //lagot okoz...
+for(Button * pb : vbutton){
+ if(pb->_funkcio == "tuz" && pb->_selected == true){
+
+pb->_selected = false;
+_selectedW = true;
+}
+
+
+}
+
+if(ev.keycode == key_enter || _selectedW == true){
 
 Projectile *pp = new Projectile(winwin,vtankcso[playerW-1]->_x+vtankcso[playerW-1]->_sx/2+_angleW,vtankcso[playerW-1]->_y+_powerW,65,30,2,_XX,_YY,vtankcso[playerW-1]->_tankszinR,vtankcso[playerW-1]->_tankszinG,vtankcso[playerW-1]->_tankszinB);
 
 vprojectile.push_back(pp);
-//pb->_selected = false;
+_selectedW = false;
 
 }
-//}
+
 
 
 

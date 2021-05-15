@@ -7,7 +7,7 @@ using namespace std;
 
 Projectile::Projectile(Window *parent,int x, int y, int sx, int sy, int player, int nagyX,int nagyY,int tankszinR,int tankszinG,int tankszinB) : TankCso(parent,x,y,sx,sy,player,nagyX,nagyY,tankszinR,tankszinG,tankszinB)
 {
-   // _parent->ProjectileWindow(this);
+
 
 
 }
@@ -33,7 +33,7 @@ int r = 5;
     for(int dy =-r; dy<=r;dy++){
         if(dx*dx+dy*dy<=r*r){
 
-            gout << color(_tankszinR/2,_tankszinG/2,_tankszinB/2)<<move_to(_x+dx-_angle  + _flyX,_y+dy+_power +_flyY/2) <<dot;
+            gout << color(_tankszinR/2,_tankszinG/2,_tankszinB/2)<<move_to(_x+dx + _flyX,_y+dy +_flyY/2) <<dot;
 
         }
     }
@@ -51,19 +51,13 @@ _power = power;
 
 void Projectile :: esemeny(event ev){
 
-//if(ev.keycode == key_enter){
 
-_flyX = _flyX -  (_angle/10)*_power/2 ;
+_flyX = _flyX -  ((_angle/20)*_power/2)/2 ;
 _flyY =  _flyY +  _power/2 -(_ido)/2;
 _ido = _ido - 1;
 
 cout << "angle: " << _angle <<endl;
-//cout << "power: " << _power <<endl;
 
-//cout << "anglesin: " << sin(_angle)*100 <<endl;
-
-
-//}
 
 
 
