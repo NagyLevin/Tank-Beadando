@@ -20,10 +20,10 @@ public:
 
 
 
-        virtual void draw() override;
-         virtual void drawprojectile();
-        virtual void esemeny(genv::event ev);
-        void getangle(double angle, double power);
+            virtual void draw() override;
+            virtual void drawprojectile();
+            virtual void esemeny(genv::event ev);
+            void getpangle(double angle, double power);
 
 
 

@@ -40,16 +40,24 @@ int r = 5;
 
 }
 
+}
+
+void Projectile::getpangle(double angle,double power){
+_angle = angle;
+_power = power;
 
 }
+
 
 void Projectile :: esemeny(event ev){
 
 //if(ev.keycode == key_enter){
 
-_flyX = _flyX + sin(_angle)*_power ;
-_flyY = _flyY + sin(_angle)*_power ;
+_flyX = _flyX + (_angle*_power)/10 ;
+_flyY =  _flyY + (_angle*_power)/10 ;
 
+
+cout << _angle <<endl;
 //}
 
 
