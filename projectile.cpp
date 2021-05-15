@@ -14,26 +14,28 @@ _ido = 0;
 
 void Projectile::draw(){
 
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
 
 void Projectile::drawprojectile(){
 
-int r = 5;
+    int r = 5;
+
+
 
         for(int dx = -r; dx<= r; dx++){
     for(int dy =-r; dy<=r;dy++){
         if(dx*dx+dy*dy<=r*r){
 
             gout << color(_tankszinR/2,_tankszinG/2,_tankszinB/2)<<move_to(_x+dx + _flyX,_y+dy +_flyY/2) <<dot;
+            _lovedekX =_x+dx + _flyX;
+            _lovedekY = _y+dy +_flyY/2;
 
         }
     }
@@ -56,12 +58,18 @@ _flyX = _flyX -  ((_angle/15)*_power)/4 ;
 _flyY =  _flyY +  _power/2 -(_ido)/2;
 _ido = _ido - 1;
 
-cout << "angle: " << _angle <<endl;
+
 
 
 
 
 }
 
+int Projectile::givelovedekX(){
+return _lovedekX;
+}
 
 
+int Projectile::givelovedekY(){
+return _lovedekY;
+}

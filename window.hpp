@@ -35,7 +35,9 @@ protected:
     //game
 
     bool jatek = true;
-
+    bool jatekvege = false;
+    bool loves = false;
+     bool lott = false;
 
 public:
 

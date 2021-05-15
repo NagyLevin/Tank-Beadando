@@ -96,7 +96,7 @@ int playerW = 1;
 
     }
 
- //if(jatek == true){
+ if(jatek == true && jatekvege == false){
 
  //map
 
@@ -263,12 +263,13 @@ _selectedW = true;
 
 }
 
-if(ev.keycode == key_enter || _selectedW == true){
+if((ev.keycode == key_enter ||  _selectedW == true) && loves == false){
 
 Projectile *pp = new Projectile(win,vtankcso[playerW-1]->_x+vtankcso[playerW-1]->_sx/2+_angleW,vtankcso[playerW-1]->_y+_powerW,65,30,2,_XX,_YY,vtankcso[playerW-1]->_tankszinR,vtankcso[playerW-1]->_tankszinG,vtankcso[playerW-1]->_tankszinB);
 
 vprojectile.push_back(pp);
 _selectedW = false;
+//loves = true;
 
 }
 
@@ -280,9 +281,48 @@ _selectedW = false;
 //projectile mozgasa
 
 
+//lott
+
+if(loves == false && lott == false){
+
+
+    for(int i = 0; i < vprojectile.size(); i++){
+
+
+
+            if( vprojectile[i]->givelovedekX() > vtank[1]->_x && vprojectile[i]->givelovedekX() < vtank[1]->_sx +vtank[1]->_x && vprojectile[i]->givelovedekY() > vtank[1]->_y && vprojectile[i]->givelovedekY() < vtank[1]->_sy +vtank[1]->_y ){
+
+                jatekvege = true;
+
+            }
+            else if(vprojectile[i]->givelovedekX() > _XX ||  vprojectile[i]->givelovedekX() < 0 || vprojectile[i]->givelovedekY() < 0 || vprojectile[i]->givelovedekY() > _YY ){
+
+              cout << "torles" <<endl;
+
+
+            }
+
+            // cout << pp->givelovedekX() <<endl;
+
+       // pp->givelovedekY();
+
+    }
+
+
+
+}
+
+
+
+//lott
+
+
+
+
+
 //playervaltas
 
-if(ev.keycode == key_backspace){
+if(ev.keycode == key_backspace || lott == true){
 
     if(playerW == 1){
 
@@ -294,14 +334,14 @@ if(ev.keycode == key_backspace){
         playerW = 1;
     }
 
-
+loves = false;
 }
 
 
 //playervaltas
 
 
-//} //jatek
+} //jatek
 
 
 
