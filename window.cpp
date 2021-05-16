@@ -12,6 +12,19 @@
 using namespace genv;
 using namespace std;
 
+int Window::PlayerCahnger(int player){
+if(player ==1){
+return 2;
+
+}
+
+if(player ==2){
+return 1;
+
+}
+
+
+}
 
 Window :: Window(int XX, int YY): _XX(XX),_YY(YY){
     gout.open(XX,YY);
@@ -76,6 +89,8 @@ void Window::Gamestarter(Window * win){
     TextWidget(win,475,470,50,50,"READY");//fire
     TextWidget(win,770,480,50,50,"FUEL");//fuel
 
+
+
     win->event_loop(win);
 }
 
@@ -85,7 +100,7 @@ void Window::Gamestarter(Window * win){
 void Window :: event_loop(Window * win) {
 event ev;
 gin.timer(30);
-int playerW = 1;
+
 //Window  * win = new Window(_XX,_YY);
 
     while(gin >> ev&& ev.keycode != key_escape) {
@@ -124,9 +139,15 @@ int playerW = 1;
 
 
 
-
                             _angleW = vtankcso[playerW-1]->getangle();
                             _powerW = vtankcso[playerW-1]->getpower();
+
+
+
+
+
+
+
 
                          for (int i = 0; i < vbutton.size();i++) {
 
@@ -135,7 +156,7 @@ int playerW = 1;
                                 vbutton[i]->esemeny(ev);
 
 
-                           if(vbutton[i]->_selected == true){
+                           if(vbutton[i]->_selected == true && loves == false){
 
                             if(vbutton[i]->_funkcio == "angle+" && _angleW + 5 < 51){
 
@@ -174,9 +195,10 @@ int playerW = 1;
 
                          }
 
-                        vtankcso[playerW-1]->changer(_angleW,_powerW);
+                              if(loves == false){
+                            vtankcso[playerW-1]->changer(_angleW,_powerW);
 
-
+                                }
 
 
 
@@ -202,14 +224,14 @@ int playerW = 1;
 //textwidget
 
 //tankmozgas
-
+            if(loves == false){
             if(ev.keycode == 'a' || ev.keycode == 'd'){
 
 
 
                for (Tank* pt : vtank) {
                     if(pt->_player == playerW){
-                          pt->esemeny(ev);  //tank
+                    pt->esemeny(ev);  //tank
 
 
 
@@ -217,6 +239,7 @@ int playerW = 1;
              }
 
 
+            }
             }
             }
 //tankmozgas
@@ -228,7 +251,7 @@ int playerW = 1;
 
 
 
-                    if(pcs->_player == playerW){
+                    if(pcs->_player == playerW && loves == false && lott == false){
                             pcs->esemenyCSO(ev);
 
                     }
@@ -242,16 +265,24 @@ int playerW = 1;
 
 //projectile mozgasa
 
-for (Projectile* pp : vprojectile) {
+
+if(lott == false && loves == true){
+   for (int i = 0; i < vprojectile.size(); i++) {
 
 
+vprojectile[i]->esemeny(ev);
+vprojectile[vprojectile.size()-1]->drawprojectile();
+vprojectile[i]->getpangle(_angleW,_powerW);
 
-pp->drawprojectile();
-pp->esemeny(ev);
-pp->getpangle(_angleW,_powerW);
 
 
 }
+
+
+}
+
+
+
 
 for(Button * pb : vbutton){
  if(pb->_funkcio == "tuz" && pb->_selected == true){
@@ -269,7 +300,7 @@ Projectile *pp = new Projectile(win,vtankcso[playerW-1]->_x+vtankcso[playerW-1]-
 
 vprojectile.push_back(pp);
 _selectedW = false;
-//loves = true;
+loves = true;
 
 }
 
@@ -283,32 +314,29 @@ _selectedW = false;
 
 //lott
 
-if(loves == false && lott == false){
+if(loves == true && lott == false){
 
 
-    for(int i = 0; i < vprojectile.size(); i++){
+     for(int i = 0; i < vprojectile.size(); i++){
 
 
 
-            if( vprojectile[i]->givelovedekX() > vtank[1]->_x && vprojectile[i]->givelovedekX() < vtank[1]->_sx +vtank[1]->_x && vprojectile[i]->givelovedekY() > vtank[1]->_y && vprojectile[i]->givelovedekY() < vtank[1]->_sy +vtank[1]->_y ){
+            if( vprojectile[i]->givelovedekX() > vtank[PlayerCahnger(playerW)-1]->_x && vprojectile[i]->givelovedekX() < vtank[PlayerCahnger(playerW)-1]->_sx +vtank[PlayerCahnger(playerW)-1]->_x && vprojectile[i]->givelovedekY() > vtank[PlayerCahnger(playerW)-1]->_y && vprojectile[i]->givelovedekY() < vtank[PlayerCahnger(playerW)-1]->_sy +vtank[PlayerCahnger(playerW)-1]->_y ){
 
                 jatekvege = true;
 
             }
-            else if(vprojectile[i]->givelovedekX() > _XX ||  vprojectile[i]->givelovedekX() < 0 || vprojectile[i]->givelovedekY() < 0 || vprojectile[i]->givelovedekY() > _YY ){
+            else if(vprojectile[vprojectile.size()-1]->givelovedekX() > _XX ||  vprojectile[vprojectile.size()-1]->givelovedekX() < 0 || vprojectile[vprojectile.size()-1]->givelovedekY() < 0 || vprojectile[vprojectile.size()-1]->givelovedekY() > 400 ){
 
               cout << "torles" <<endl;
+              lott = true;
+
 
 
             }
 
-            // cout << pp->givelovedekX() <<endl;
-
-       // pp->givelovedekY();
 
     }
-
-
 
 }
 
@@ -322,23 +350,34 @@ if(loves == false && lott == false){
 
 //playervaltas
 
-if(ev.keycode == key_backspace || lott == true){
+if( lott == true && loves == true){
 
-    if(playerW == 1){
+playerW = PlayerCahnger(playerW);
 
-        playerW = 2;
-    }
-
-   else if(playerW == 2){
-
-        playerW = 1;
-    }
-
+cout << playerW <<endl;
 loves = false;
+lott = false;
+
+
 }
 
 
 //playervaltas
+
+//cout << playerW <<endl;
+
+
+ //cout << lott <<endl;
+ //cout << loves <<endl;
+
+
+
+
+
+
+
+
+
 
 
 } //jatek

@@ -33,11 +33,11 @@ protected:
     bool _selectedW = false;
 
     //game
-
+    int playerW = 1;
     bool jatek = true;
     bool jatekvege = false;
     bool loves = false;
-     bool lott = false;
+    bool lott = false;
 
 public:
 
@@ -55,6 +55,7 @@ public:
     void ProjectileWindow(Projectile *pp);
     void Gamestarter(Window * win);
 
+    int PlayerCahnger(int player);
 
     //widgetek
 
