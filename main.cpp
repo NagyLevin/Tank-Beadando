@@ -1,12 +1,4 @@
-#include "graphics.hpp"
-#include "properties.hpp"
-#include "map.hpp"
 #include "window.hpp"
-#include "tank.hpp"
-#include "tankcso.hpp"
-#include "button.hpp"
-#include "textwidget.hpp"
-#include "projectile.hpp"
 #include <vector>
 #include <iostream>
 

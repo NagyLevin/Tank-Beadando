@@ -5,6 +5,7 @@
 #include <vector>
 
 //forward deklaraciok
+
 class Properties;
 class Map;
 class Tank;
@@ -12,12 +13,16 @@ class Button;
 class TextWidget;
 class TankCso;
 class Projectile;
+class GameEnd;
+class GameBegin;
+
 //forward deklaraciok
 using namespace std;
 using namespace genv;
 
 class Window{
 protected:
+
     vector<Properties*> vproperties;
     vector<Map*> vmap;
     vector<Tank*> vtank;
@@ -25,6 +30,8 @@ protected:
     vector<TextWidget*> vtextwidget;
     vector<TankCso*> vtankcso;
     vector<Projectile*> vprojectile;
+    vector<GameEnd*> vgameend;
+    vector<GameBegin*> vgamebegin;
 
     int _XX,_YY;
 
@@ -34,7 +41,7 @@ protected:
 
     //game
     int playerW = 1;
-    bool jatek = true;
+    bool jatek = false;
     bool jatekvege = false;
     bool loves = false;
     bool lott = false;
@@ -53,7 +60,10 @@ public:
     void TextWidgetWindow(TextWidget *px);
     void TankCsoWindow(TankCso *pcs);
     void ProjectileWindow(Projectile *pp);
+    void GameEndWindow(GameEnd *pge);
+    void GameBeginWindow(GameBegin *pgb);
     void Gamestarter(Window * win);
+
 
     int PlayerCahnger(int player);
 

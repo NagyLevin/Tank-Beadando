@@ -7,6 +7,8 @@
 #include "button.hpp"
 #include "textwidget.hpp"
 #include "projectile.hpp"
+#include "gameend.hpp"
+#include "gamebegin.hpp"
 #include <math.h>
 #include <iostream>
 using namespace genv;
@@ -61,6 +63,14 @@ vtankcso.push_back(pcs);
 
 }
 
+void Window :: GameEndWindow(GameEnd *pge){
+vgameend.push_back(pge);
+
+}
+void Window :: GameBeginWindow(GameBegin *pgb){
+vgamebegin.push_back(pgb);
+
+}
 
 
 
@@ -89,6 +99,13 @@ void Window::Gamestarter(Window * win){
     TextWidget(win,475,470,50,50,"READY");//fire
     TextWidget(win,770,480,50,50,"FUEL");//fuel
 
+    GameEnd(win,_XX/2,_YY/2,50,50,"GAME OVER");
+    GameEnd(win,_XX/2,_YY/2+75,50,50,"New Game");
+    GameEnd(win,_XX/2,_YY/2+100,35,50,"Menu");
+
+    GameBegin(win,_XX/2,_YY/3,60,50,"TANK WARS");
+    GameBegin(win,_XX/2,_YY/3,100,0,"Press enter to start");
+    GameBegin(win,_XX/2,_YY/3+100,50,50,"Start");
 
 
     win->event_loop(win);
@@ -212,7 +229,7 @@ gin.timer(30);
 
               for (TextWidget* px : vtextwidget) {
 
-                 px->draw();
+                px->draw();
 
 
                  px->drawpower(((_powerW/-31)*100)+4);
@@ -328,7 +345,8 @@ if(loves == true && lott == false){
             }
             else if(vprojectile[vprojectile.size()-1]->givelovedekX() > _XX ||  vprojectile[vprojectile.size()-1]->givelovedekX() < 0 || vprojectile[vprojectile.size()-1]->givelovedekY() < 0 || vprojectile[vprojectile.size()-1]->givelovedekY() > 400 ){
 
-              cout << "torles" <<endl;
+              vprojectile[i] == nullptr;
+             // delete vprojectile[i];
               lott = true;
 
 
@@ -354,7 +372,7 @@ if( lott == true && loves == true){
 
 playerW = PlayerCahnger(playerW);
 
-cout << playerW <<endl;
+//cout << playerW <<endl;
 loves = false;
 lott = false;
 
@@ -362,30 +380,33 @@ lott = false;
 }
 
 
-//playervaltas
-
-//cout << playerW <<endl;
-
-
- //cout << lott <<endl;
- //cout << loves <<endl;
-
-
-
-
-
-
-
-
-
-
 
 } //jatek
 
 
 
+if(jatekvege == true){
+
+for (GameEnd * pge : vgameend) {
+
+pge->draw();
+
+}
+
+}
 
 
+
+
+if(jatek == false){
+
+for (GameBegin * pgb : vgamebegin) {
+
+pgb->draw();
+
+}
+
+}
 
 
 
