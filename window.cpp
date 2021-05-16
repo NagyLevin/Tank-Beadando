@@ -9,6 +9,8 @@
 #include "projectile.hpp"
 #include "gameend.hpp"
 #include "gamebegin.hpp"
+#include "showplayer.hpp"
+
 #include <math.h>
 #include <iostream>
 using namespace genv;
@@ -72,6 +74,10 @@ vgamebegin.push_back(pgb);
 
 }
 
+void Window :: ShowPlayerWindow(ShowPlayer *psp){
+vshowplayer.push_back(psp);
+
+}
 
 
 
@@ -83,6 +89,10 @@ void Window::Gamestarter(Window * win){
 
     TankCso(win,50,365,65,30,1,_XX,_YY,255,0,0);
     TankCso(win,_XX-100,365,65,30,2,_XX,_YY,255,255,0);
+
+     ShowPlayer(win,50,365,25,40,1,_XX,_YY,255,0,0);
+    ShowPlayer(win,_XX-100,365,25,40,100,_XX,_YY,255,255,0);
+
 
     Button(win,450,480,90,90,"tuz");
 
@@ -118,9 +128,8 @@ void Window :: event_loop(Window * win) {
 event ev;
 gin.timer(30);
 
-//Window  * win = new Window(_XX,_YY);
 
-    while(gin >> ev&& ev.keycode != key_escape) {
+    while(gin >> ev && ev.keycode != key_escape) {
 
     if(ev.type == ev_timer)
     {
@@ -151,15 +160,36 @@ gin.timer(30);
 
 //tankok kirajzolasa
 
+//showplayer
+
+
+  for (int i = 0;i < vshowplayer.size();i++) {
+
+        if( playerW == 1){
+            vshowplayer[0]->drawshow();
+        }
+
+        if( playerW == 2){
+            vshowplayer[1]->drawshow();
+        }
+        }
+
+
+//showplayer
+
+
+
+
+
  //button
 
 
 
-
+                                if(loves == false){
                             _angleW = vtankcso[playerW-1]->getangle();
                             _powerW = vtankcso[playerW-1]->getpower();
 
-
+                                }
 
 
 

@@ -15,6 +15,7 @@ class TankCso;
 class Projectile;
 class GameEnd;
 class GameBegin;
+class ShowPlayer;
 
 //forward deklaraciok
 using namespace std;
@@ -32,6 +33,7 @@ protected:
     vector<Projectile*> vprojectile;
     vector<GameEnd*> vgameend;
     vector<GameBegin*> vgamebegin;
+    vector<ShowPlayer*> vshowplayer;
 
     int _XX,_YY;
 
@@ -41,7 +43,7 @@ protected:
 
     //game
     int playerW = 1;
-    bool jatek = false;
+    bool jatek = true;
     bool jatekvege = false;
     bool loves = false;
     bool lott = false;
@@ -63,7 +65,7 @@ public:
     void GameEndWindow(GameEnd *pge);
     void GameBeginWindow(GameBegin *pgb);
     void Gamestarter(Window * win);
-
+    void ShowPlayerWindow(ShowPlayer *psp);
 
     int PlayerCahnger(int player);
 
