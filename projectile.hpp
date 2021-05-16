@@ -8,16 +8,18 @@
 class Projectile : public TankCso {
 protected:
 
-        double _flyX = 0;
-        double _flyY = 0;
+
         double _ido = 0;
 
         double _lovedekX = 0;
         double _lovedekY = 0;
-
+        double _flyX = 0;
+        double _flyY = 0;
 
 
 public:
+
+
 
         Projectile( Window *parent,int x, int y, int sx, int sy, int player, int nagyX,int nagyY,int tankszinR,int tankszinG,int tankszinB);
 

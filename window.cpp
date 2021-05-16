@@ -244,10 +244,9 @@ gin.timer(30);
 
                          }
 
-                              if(loves == false){
+                            if(loves == false){
                             vtankcso[playerW]->changer(_angleW,_powerW);
-
-                                }
+                            }
 
 
 
@@ -281,13 +280,7 @@ gin.timer(30);
                for (Tank* pt : vtank) {
                     if(pt->_player == playerW){
                     pt->esemeny(ev);  //tank
-
-
-
-
              }
-
-
             }
             }
             }
@@ -297,9 +290,6 @@ gin.timer(30);
 
 
                       for (TankCso* pcs : vtankcso) {
-
-
-
                     if(pcs->_player == playerW && loves == false && lott == false){
                             pcs->esemenyCSO(ev);
 
@@ -372,7 +362,10 @@ if(loves == true && lott == false){
 
             if( vprojectile[i]->givelovedekX() > vtank[PlayerCahnger(playerW)]->_x && vprojectile[i]->givelovedekX() < vtank[PlayerCahnger(playerW)]->_sx +vtank[PlayerCahnger(playerW)]->_x && vprojectile[i]->givelovedekY() > vtank[PlayerCahnger(playerW)]->_y && vprojectile[i]->givelovedekY() < vtank[PlayerCahnger(playerW)]->_sy +vtank[PlayerCahnger(playerW)]->_y ){
 
-                jatekvege = true;
+
+                              jatekvege = true;
+
+
 
             }
             else if(vprojectile[vprojectile.size()-1]->givelovedekX() > _XX ||  vprojectile[vprojectile.size()-1]->givelovedekX() < 0 || vprojectile[vprojectile.size()-1]->givelovedekY() < 0 || vprojectile[vprojectile.size()-1]->givelovedekY() > 400 ){
@@ -425,7 +418,20 @@ pge->draw();
 
 }
 
+
+if(ev.keycode == key_enter){
+   jatekvege = false;
 }
+
+for(Tank * pt :vtank){
+    pt->_fuel = 100;
+
+}
+
+
+}
+
+
 
 
 
@@ -437,6 +443,18 @@ for (GameBegin * pgb : vgamebegin) {
 pgb->draw();
 
 }
+if(ev.keycode == key_enter){
+   jatek = true;
+}
+
+for(Tank * pt :vtank){
+    pt->_fuel = 100;
+
+}
+
+
+
+
 
 }
 
@@ -455,7 +473,7 @@ pgb->draw();
 
 
 
-
+        cout << jatekvege <<endl;
 
 
 
