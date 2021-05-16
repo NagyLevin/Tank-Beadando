@@ -21,7 +21,7 @@ gout << move_to(_x,_y) << color(_tankszinR,_tankszinG,_tankszinB) << box(_sx,_sy
 
 void Tank::esemeny(event ev){
 
-if(_player == 1){
+if(_player == 0){
 
   if(ev.keycode == 'd'){
 
@@ -43,7 +43,7 @@ else if(ev.keycode == 'a'){
 
 }
 
-if(_player == 2){
+if(_player == 1){
 
   if(ev.keycode == 'd'){
 

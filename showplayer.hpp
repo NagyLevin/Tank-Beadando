@@ -14,9 +14,9 @@ public:
     ShowPlayer( Window *parent,int x, int y, int sx, int sy, int player, int nagyX,int nagyY,int tankszinR,int tankszinG,int tankszinB);
 
 
-        void draw() override;
-        void drawshow();
 
+        void drawshow();
+        virtual void draw() override;
 
 
 

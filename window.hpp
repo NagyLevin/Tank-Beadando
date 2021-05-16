@@ -42,7 +42,7 @@ protected:
     bool _selectedW = false;
 
     //game
-    int playerW = 1;
+    int playerW = 0;
     bool jatek = true;
     bool jatekvege = false;
     bool loves = false;

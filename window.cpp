@@ -17,13 +17,13 @@ using namespace genv;
 using namespace std;
 
 int Window::PlayerCahnger(int player){
-if(player ==1){
-return 2;
+if(player ==0){
+return 1;
 
 }
 
-if(player ==2){
-return 1;
+if(player ==1){
+return 0;
 
 }
 
@@ -85,14 +85,14 @@ void Window::Gamestarter(Window * win){
 
     Map(win,1,400,_XX-1,50); //map alja/ honnan / milyen magasságban / hova /vastagsag
 
-    Tank(win,50,365,65,30,1,_XX,_YY,255,0,0);
-    Tank(win,_XX-100,365,65,30,2,_XX,_YY,255,255,0);
+    Tank(win,50,365,65,30,0,_XX,_YY,255,0,0);
+    Tank(win,_XX-100,365,65,30,1,_XX,_YY,255,255,0);
 
-    TankCso(win,50,365,65,30,1,_XX,_YY,255,0,0);
-    TankCso(win,_XX-100,365,65,30,2,_XX,_YY,255,255,0);
+    TankCso(win,50,365,65,30,0,_XX,_YY,255,0,0);
+    TankCso(win,_XX-100,365,65,30,1,_XX,_YY,255,255,0);
 
-    ShowPlayer(win,50,365,30,40,1,_XX,_YY,255,0,0);
-    ShowPlayer(win,_XX-100,365,30,40,100,_XX,_YY,255,255,0);
+    ShowPlayer(win,50,365,30,40,0,_XX,_YY,255,0,0);
+    ShowPlayer(win,_XX-100,365,30,40,1,_XX,_YY,255,255,0);
 
 
     Button(win,460,500,90,90,"tuz");
@@ -167,11 +167,11 @@ gin.timer(30);
 
   for (int i = 0;i < vshowplayer.size();i++) {
 
-        if( playerW == 1){
+        if( playerW == 0){
             vshowplayer[0]->drawshow();
         }
 
-        if( playerW == 2){
+        if( playerW == 1){
             vshowplayer[1]->drawshow();
         }
         }
@@ -187,11 +187,11 @@ gin.timer(30);
 
 
 
-                                if(loves == false){
-                            _angleW = vtankcso[playerW-1]->getangle();
-                            _powerW = vtankcso[playerW-1]->getpower();
+                            if(loves == false){
+                            _angleW = vtankcso[playerW]->getangle();
+                            _powerW = vtankcso[playerW]->getpower();
 
-                                }
+                            }
 
 
 
@@ -245,7 +245,7 @@ gin.timer(30);
                          }
 
                               if(loves == false){
-                            vtankcso[playerW-1]->changer(_angleW,_powerW);
+                            vtankcso[playerW]->changer(_angleW,_powerW);
 
                                 }
 
@@ -268,7 +268,7 @@ gin.timer(30);
 
                  px->drawangle(180-(90+(atan(_angleW/_powerW)*180)/M_PI));
 
-                 px->drawfuel(vtank[playerW-1]->getfuel());
+                 px->drawfuel(vtank[playerW]->getfuel());
              }
 //textwidget
 
@@ -345,7 +345,7 @@ _selectedW = true;
 
 if((ev.keycode == key_space ||  _selectedW == true) && loves == false){
 
-Projectile *pp = new Projectile(win,vtankcso[playerW-1]->_x+vtankcso[playerW-1]->_sx/2+_angleW,vtankcso[playerW-1]->_y+_powerW,65,30,2,_XX,_YY,vtankcso[playerW-1]->_tankszinR,vtankcso[playerW-1]->_tankszinG,vtankcso[playerW-1]->_tankszinB);
+Projectile *pp = new Projectile(win,vtankcso[playerW]->_x+vtankcso[playerW]->_sx/2+_angleW,vtankcso[playerW]->_y+_powerW,65,30,2,_XX,_YY,vtankcso[playerW]->_tankszinR,vtankcso[playerW]->_tankszinG,vtankcso[playerW]->_tankszinB);
 
 vprojectile.push_back(pp);
 _selectedW = false;
@@ -370,7 +370,7 @@ if(loves == true && lott == false){
 
 
 
-            if( vprojectile[i]->givelovedekX() > vtank[PlayerCahnger(playerW)-1]->_x && vprojectile[i]->givelovedekX() < vtank[PlayerCahnger(playerW)-1]->_sx +vtank[PlayerCahnger(playerW)-1]->_x && vprojectile[i]->givelovedekY() > vtank[PlayerCahnger(playerW)-1]->_y && vprojectile[i]->givelovedekY() < vtank[PlayerCahnger(playerW)-1]->_sy +vtank[PlayerCahnger(playerW)-1]->_y ){
+            if( vprojectile[i]->givelovedekX() > vtank[PlayerCahnger(playerW)]->_x && vprojectile[i]->givelovedekX() < vtank[PlayerCahnger(playerW)]->_sx +vtank[PlayerCahnger(playerW)]->_x && vprojectile[i]->givelovedekY() > vtank[PlayerCahnger(playerW)]->_y && vprojectile[i]->givelovedekY() < vtank[PlayerCahnger(playerW)]->_sy +vtank[PlayerCahnger(playerW)]->_y ){
 
                 jatekvege = true;
 
