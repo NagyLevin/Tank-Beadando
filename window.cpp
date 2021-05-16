@@ -84,17 +84,18 @@ vshowplayer.push_back(psp);
 void Window::Gamestarter(Window * win){
 
     Map(win,1,400,_XX-1,50); //map alja/ honnan / milyen magasságban / hova /vastagsag
+
     Tank(win,50,365,65,30,1,_XX,_YY,255,0,0);
     Tank(win,_XX-100,365,65,30,2,_XX,_YY,255,255,0);
 
     TankCso(win,50,365,65,30,1,_XX,_YY,255,0,0);
     TankCso(win,_XX-100,365,65,30,2,_XX,_YY,255,255,0);
 
-     ShowPlayer(win,50,365,25,40,1,_XX,_YY,255,0,0);
-    ShowPlayer(win,_XX-100,365,25,40,100,_XX,_YY,255,255,0);
+    ShowPlayer(win,50,365,30,40,1,_XX,_YY,255,0,0);
+    ShowPlayer(win,_XX-100,365,30,40,100,_XX,_YY,255,255,0);
 
 
-    Button(win,450,480,90,90,"tuz");
+    Button(win,460,500,90,90,"tuz");
 
     Button(win,260,500,50,50,"angle+");//angle
     Button(win,200,500,50,50,"angle-");//angle
@@ -102,6 +103,7 @@ void Window::Gamestarter(Window * win){
 
     Button(win,100,490,50,50,"power-");//power
     Button(win,100,550,50,50,"power+");//power
+
     Button(win,750,500,70,70,"fuel");//power
 
     TextWidget(win,100,470,50,50,"POWER");//power
@@ -109,13 +111,13 @@ void Window::Gamestarter(Window * win){
     TextWidget(win,475,470,50,50,"READY");//fire
     TextWidget(win,770,480,50,50,"FUEL");//fuel
 
-    GameEnd(win,_XX/2,_YY/2,50,50,"GAME OVER");
-    GameEnd(win,_XX/2,_YY/2+75,50,50,"New Game");
-    GameEnd(win,_XX/2,_YY/2+100,35,50,"Menu");
+    GameEnd(win,_XX/3,_YY/3,50,60,"GAME OVER");
+    GameEnd(win,_XX/3,_YY/3+75,-20,40,"New Game");
+    GameEnd(win,_XX/3,_YY/3+125,-50,40,"Menu");
 
-    GameBegin(win,_XX/2,_YY/3,60,50,"TANK WARS");
-    GameBegin(win,_XX/2,_YY/3,100,0,"Press enter to start");
-    GameBegin(win,_XX/2,_YY/3+100,50,50,"Start");
+    GameBegin(win,_XX/3,_YY/3-100,50,65,"TANK WARS");
+    GameBegin(win,_XX/3,_YY/3+50,-100,40,"Start");
+    GameBegin(win,_XX/3,_YY/3+100,-100,40,"Help");
 
 
     win->event_loop(win);
@@ -314,7 +316,7 @@ gin.timer(30);
 
 
 if(lott == false && loves == true){
-   for (int i = 0; i < vprojectile.size(); i++) {
+for (int i = 0; i < vprojectile.size(); i++) {
 
 
 vprojectile[i]->esemeny(ev);
@@ -341,7 +343,7 @@ _selectedW = true;
 
 }
 
-if((ev.keycode == key_enter ||  _selectedW == true) && loves == false){
+if((ev.keycode == key_space ||  _selectedW == true) && loves == false){
 
 Projectile *pp = new Projectile(win,vtankcso[playerW-1]->_x+vtankcso[playerW-1]->_sx/2+_angleW,vtankcso[playerW-1]->_y+_powerW,65,30,2,_XX,_YY,vtankcso[playerW-1]->_tankszinR,vtankcso[playerW-1]->_tankszinG,vtankcso[playerW-1]->_tankszinB);
 

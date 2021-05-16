@@ -16,7 +16,10 @@ void GameBegin::draw(){
 
 
 
-    gout << move_to(_x-_sx,_y-_sy) << color(255,255,255) << text(_szoveg);
+   int szovegmeret = _sy;
+
+
+    gout << move_to(_x-_sx,_y) << color(255,255,255) << font("LiberationSans-BoldItalic.ttf",_sy,true) << text(_szoveg);
 
 
 

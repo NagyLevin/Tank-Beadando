@@ -16,7 +16,7 @@ void TextWidget::draw(){
 
 
 
-    gout << move_to(_x,_y) << color(255,255,255) << text(_szoveg);
+    gout << move_to(_x,_y) << color(255,255,255) << font("LiberationSans-BoldItalic.ttf",15,true) << text(_szoveg);
 
 
 
@@ -47,7 +47,7 @@ void TextWidget::drawfuel(int ertek){
 
 
 
-    gout << color(255,255,255) << move_to(700,540) << text(to_string(ertek)) << text("l");
+    gout << color(255,255,255) << move_to(700,530) << text(to_string(ertek)) << text("l");
 
 
 

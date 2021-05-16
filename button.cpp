@@ -25,6 +25,23 @@ else if(_selected == false){
 
 }
 
+if(_funkcio == "angle+" || _funkcio == "power-"){
+
+    gout << move_to(_x +_sx/2 ,_y) << color(255,255,255) << line(0,_sy);
+  gout << move_to(_x  ,_y+_sy/2) << color(255,255,255) << line(_sx,0);
+}
+
+if(_funkcio == "angle-" || _funkcio == "power+"){
+
+
+  gout << move_to(_x  ,_y+_sy/2) << color(255,255,255) << line(_sx,0);
+}
+if(_funkcio == "tuz"){
+
+
+  gout << move_to(_x +_sx/3 ,_y+_sy/3) << color(255,255,255) << font("LiberationSans-BoldItalic.ttf",20,true)  << text("Fire");
+}
+
 
 
 }
