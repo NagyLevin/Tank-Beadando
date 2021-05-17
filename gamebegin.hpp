@@ -13,7 +13,7 @@ protected:
 
 
 public:
-     int _lepes;
+     bool _lepes = false;
     GameBegin( Window *parent,int x, int y, int sx, int sy,string szoveg,int menu);
 
 

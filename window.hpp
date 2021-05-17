@@ -43,11 +43,11 @@ protected:
 
     //game
     int playerW = 0;
-    bool jatek = true;
-    bool jatekvege = true;
+    bool jatek = false;
+    bool jatekvege = false;
     bool loves = false;
     bool lott = false;
-    bool help = false;
+
 
 public:
 

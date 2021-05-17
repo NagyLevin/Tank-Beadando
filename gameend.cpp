@@ -39,7 +39,7 @@ if(ev.keycode == 's'){
     if(_lepes < 1){
         _lepes = 2;
     }
-    cout << _lepes <<endl;
+
 }
 
 if(ev.keycode == 'w'){
@@ -48,7 +48,7 @@ if(ev.keycode == 'w'){
     if(_lepes > 2){
         _lepes = 1;
     }
-    cout << _lepes <<endl;
+
 }
 
 

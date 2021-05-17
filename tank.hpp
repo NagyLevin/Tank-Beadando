@@ -25,7 +25,7 @@ public:
         virtual void draw() override;
         virtual void esemeny(genv::event ev) override;
         int getfuel();
-
+        void changepos(int nagyX);
 
 
 };

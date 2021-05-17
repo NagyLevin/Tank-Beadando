@@ -71,3 +71,7 @@ else if(ev.keycode == 'a'){
 int Tank::getfuel(){
 return _fuel;
 }
+void Tank::changepos(int nagyX){
+_x = nagyX;
+
+}

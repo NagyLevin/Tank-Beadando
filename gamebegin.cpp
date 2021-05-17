@@ -8,7 +8,7 @@ using namespace std;
 GameBegin::GameBegin(Window* parent, int x, int y, int sx, int sy,string szoveg,int menu) : Properties(parent,x,y,sx,sy),_szoveg(szoveg),_menu(menu)
 {
       _parent->GameBeginWindow(this);
-
+    _lepes = false;
 
 }
 
@@ -38,21 +38,13 @@ void GameBegin::draw(){
 void GameBegin :: esemeny(event ev){
 
 if(ev.keycode == 's'){
-    _lepes = _lepes-1;
+ _lepes = true;
 
-    if(_lepes < 1){
-        _lepes = 2;
-    }
-    cout << _lepes <<endl;
 }
 
 if(ev.keycode == 'w'){
-    _lepes = _lepes+1;
+  _lepes = true;
 
-    if(_lepes > 2){
-        _lepes = 1;
-    }
-    cout << _lepes <<endl;
 }
 
 

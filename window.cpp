@@ -112,12 +112,12 @@ void Window::Gamestarter(Window * win){
     TextWidget(win,770,480,50,50,"FUEL");//fuel
 
     GameEnd(win,_XX/3,_YY/3,50,60,"GAME OVER",-1);
-    GameEnd(win,_XX/3,_YY/3+75,-20,40,"New Game",1);
+    GameEnd(win,_XX/3,_YY/3+75,-20,40,"Continue",1);
     GameEnd(win,_XX/3,_YY/3+125,-50,40,"Menu",2);
 
     GameBegin(win,_XX/3,_YY/3-100,50,65,"TANK WARS",-1);
     GameBegin(win,_XX/3,_YY/3+50,-100,40,"Start",1);
-    GameBegin(win,_XX/3,_YY/3+100,-100,40,"Help",2);
+
 
 
     win->event_loop(win);
@@ -362,8 +362,9 @@ if(loves == true && lott == false){
 
             if( vprojectile[i]->givelovedekX() > vtank[PlayerCahnger(playerW)]->_x && vprojectile[i]->givelovedekX() < vtank[PlayerCahnger(playerW)]->_sx +vtank[PlayerCahnger(playerW)]->_x && vprojectile[i]->givelovedekY() > vtank[PlayerCahnger(playerW)]->_y && vprojectile[i]->givelovedekY() < vtank[PlayerCahnger(playerW)]->_sy +vtank[PlayerCahnger(playerW)]->_y ){
 
+                vprojectile[i]->changer(_XX+100,_YY+100);
 
-                              jatekvege = true;
+                jatekvege = true;
 
 
 
@@ -418,50 +419,57 @@ pge->esemeny(ev);
 }
 
 
-if(ev.keycode == key_enter){
-   jatekvege = false;
-}
-
 for(Tank * pt :vtank){
     pt->_fuel = 100;
 
 }
+
+
+
 if(ev.keycode == key_enter && vgameend[1]->_lepes == 1){
    jatek = true;
+   jatekvege = false;
 }
 if(ev.keycode == key_enter && vgameend[2]->_lepes == 2){
-   help = false;
+
+
    jatek = false;
+    jatekvege = false;
+}
+
+
+vgamebegin[1]->_lepes = false;
+
 }
 
 
 
 
-}
 
 
-
-
-
-
-if(jatek == false && help == false){
+if(jatek == false){
 
 for(Tank * pt :vtank){
     pt->_fuel = 100;
 
 }
+vtank[0]->changepos(50);
+vtank[1]->changepos(_XX-100);
+vtankcso[0]->changepos(50);
+vtankcso[1]->changepos(_XX-100);
+vshowplayer[0]->changepos(50);
+vshowplayer[1]->changepos(_XX-100);
+
 for (GameBegin * pgb : vgamebegin) {
 
 pgb->draw();
 pgb->esemeny(ev);
 
-
 }
-if(ev.keycode == key_enter && vgamebegin[1]->_lepes == 1){
-   jatek = true;
-}
-if(ev.keycode == key_enter && vgamebegin[2]->_lepes == 2){
-   help = true;
+if(ev.keycode == key_enter && vgamebegin[1]->_lepes == true){
+        cout << "jartal itt" <<endl;
+    jatekvege = false;
+    jatek = true;
 }
 
 
