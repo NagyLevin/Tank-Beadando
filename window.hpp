@@ -40,7 +40,7 @@ protected:
 
     double _angleW  = 0;
     double _powerW  = 0;
-    double szel = rand()%13+1;
+    double szel = (rand()%13+1)-(rand()%13+1);
     bool _selectedW = false;
 
     //game

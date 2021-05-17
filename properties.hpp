@@ -21,7 +21,7 @@ public:
 
 
         virtual bool is_selected(int mouse_x, int mouse_y);
-        virtual void draw();
+        virtual void draw() = 0;
         virtual void esemeny(genv::event ev) = 0;
 
 

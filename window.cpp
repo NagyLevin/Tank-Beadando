@@ -364,7 +364,7 @@ if( lott == true && loves == true){
 playerW = PlayerCahnger(playerW);
 
 
-szel = (rand()%13+1 - rand()%13+1);
+szel = (rand()%13+1) - (rand()%13+1);
 
 loves = false;
 lott = false;
