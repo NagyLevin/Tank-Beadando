@@ -27,7 +27,8 @@ if(player ==1){
 return 0;
 
 }
-
+else
+return 0;
 }
 
 
@@ -148,47 +149,41 @@ gin.timer(30);
 
  //map
 
-            for (Map * pm : vmap) {
+for (Map * pm : vmap) {
 
-                 pm->draw();
+pm->draw();
 
 
-             }
+}
  //map
 
  //tankok kirajzolasa
 
-      for (Tank* pt : vtank) {
-
-            pt->draw();
-
-
-                }
+for (Tank* pt : vtank) {
+pt->draw();
+}
 
 //tankok kirajzolasa
 
 //showplayer
 
 
-  for (int i = 0;i < vshowplayer.size();i++) {
-
-        if( playerW == 0){
-            vshowplayer[0]->drawshow();
-        }
-
-        if( playerW == 1){
-            vshowplayer[1]->drawshow();
-        }
-        }
+for (size_t i = 0;i < vshowplayer.size();i++) {
+if( playerW == 0){
+vshowplayer[0]->drawshow();
+}
+if( playerW == 1){
+vshowplayer[1]->drawshow();
+}
+}
 
 
 //showplayer
 
 //wind
 
-for (int i = 0;i < vwind.size();i++) {
-
-  vwind[i]->drawshow(szel);
+for (size_t i = 0;i < vwind.size();i++) {
+vwind[i]->drawshow(szel);
 }
 
 //wind
@@ -198,129 +193,82 @@ for (int i = 0;i < vwind.size();i++) {
 
 
  //button
+if(loves == false){
+_angleW = vtankcso[playerW]->getangle();
+_powerW = vtankcso[playerW]->getpower();
+}
 
+for (size_t i = 0; i < vbutton.size();i++) {
 
+vbutton[i]->draw();
+vbutton[i]->esemeny(ev);
+if(vbutton[i]->_selected == true && loves == false){
 
-                            if(loves == false){
-                            _angleW = vtankcso[playerW]->getangle();
-                            _powerW = vtankcso[playerW]->getpower();
+if(vbutton[i]->_funkcio == "angle+" && _angleW + 5 < 51){
 
-                            }
+_angleW = _angleW + 5;
+vbutton[i]->_selected = false;
+}
+if(vbutton[i]->_funkcio == "angle-" && _angleW -5 > -51){
+_angleW = _angleW - 5;
+vbutton[i]->_selected = false;
+}
 
+if(vbutton[i]->_funkcio == "power+" && _powerW + 5 < -1){
+_powerW = _powerW + 5;
+vbutton[i]->_selected = false;
+}
 
+if(vbutton[i]->_funkcio == "power-" && _powerW - 5 > -31){
+_powerW = _powerW - 5;
+vbutton[i]->_selected = false;
+}
+}
+}
 
-
-
-
-                         for (int i = 0; i < vbutton.size();i++) {
-
-
-                                vbutton[i]->draw();             //button
-                                vbutton[i]->esemeny(ev);
-
-
-                           if(vbutton[i]->_selected == true && loves == false){
-
-                            if(vbutton[i]->_funkcio == "angle+" && _angleW + 5 < 51){
-
-                                _angleW = _angleW + 5;
-                                vbutton[i]->_selected = false;
-
-                            }
-                            if(vbutton[i]->_funkcio == "angle-" && _angleW -5 > -51){
-
-                                _angleW = _angleW - 5;
-                                vbutton[i]->_selected = false;
-
-                            }
-                             if(vbutton[i]->_funkcio == "power+" && _powerW + 5 < -1){
-
-                                _powerW = _powerW + 5;
-                                vbutton[i]->_selected = false;
-
-                            }
-                               if(vbutton[i]->_funkcio == "power-" && _powerW - 5 > -31){
-
-                                _powerW = _powerW - 5;
-                                vbutton[i]->_selected = false;
-
-                            }
-
-
-
-
-                           }
-
-
-
-
-
-
-                         }
-
-                            if(loves == false){
-                            vtankcso[playerW]->changer(_angleW,_powerW);
-                            }
-
-
-
-
+if(loves == false){
+vtankcso[playerW]->changer(_angleW,_powerW);
+}
 
 //button
 
 //textwidget
 
-
-
-              for (TextWidget* px : vtextwidget) {
-
-                px->draw();
-
-
-                 px->drawpower(((_powerW/-31)*100)+4);
-
-                 px->drawangle(180-(90+(atan(_angleW/_powerW)*180)/M_PI));
-
-                 px->drawfuel(vtank[playerW]->getfuel());
-             }
+for (TextWidget* px : vtextwidget) {
+px->draw();
+px->drawpower(((_powerW/-31)*100)+4);
+px->drawangle(180-(90+(atan(_angleW/_powerW)*180)/M_PI));
+px->drawfuel(vtank[playerW]->getfuel());
+}
 //textwidget
 
 //tankmozgas
-            if(loves == false){
-            if(ev.keycode == 'a' || ev.keycode == 'd'){
-
-
-
-               for (Tank* pt : vtank) {
-                    if(pt->_player == playerW){
-                    pt->esemeny(ev);  //tank
-             }
-            }
-            }
-            }
+if(loves == false){
+if(ev.keycode == 'a' || ev.keycode == 'd'){
+for (Tank* pt : vtank) {
+if(pt->_player == playerW){
+pt->esemeny(ev);  //tank
+}
+}
+}
+}
 //tankmozgas
 
 //tankcsomozgas
 
-
-                      for (TankCso* pcs : vtankcso) {
-                    if(pcs->_player == playerW && loves == false && lott == false){
-                            pcs->esemenyCSO(ev);
-
-                    }
-                    }
-
-
-
+for (TankCso* pcs : vtankcso) {
+if(pcs->_player == playerW && loves == false && lott == false){
+pcs->esemenyCSO(ev);
+}
+}
 
 //tankcsomozgas
-
 
 //projectile mozgasa
 
 
 if(lott == false && loves == true){
-for (int i = 0; i < vprojectile.size(); i++) {
+for (size_t i = 0; i < vprojectile.size(); i++) {
 
 
 vprojectile[i]->esemeny(ev);
@@ -374,7 +322,7 @@ vprojectile[vprojectile.size()-1]->getszel(szel); //szel odaadas
 if(loves == true && lott == false){
 
 
-     for(int i = 0; i < vprojectile.size(); i++){
+     for(size_t i = 0; i < vprojectile.size(); i++){
 
 
 
@@ -389,7 +337,7 @@ if(loves == true && lott == false){
             }
             else if(vprojectile[vprojectile.size()-1]->givelovedekX() > _XX ||  vprojectile[vprojectile.size()-1]->givelovedekX() < 0 || vprojectile[vprojectile.size()-1]->givelovedekY() < 0 || vprojectile[vprojectile.size()-1]->givelovedekY() > 400 ){
 
-            vprojectile[i] == nullptr;
+            //vprojectile[i] == nullptr;
             lott = true;
 
 
@@ -416,7 +364,7 @@ if( lott == true && loves == true){
 playerW = PlayerCahnger(playerW);
 
 
-szel = (rand()%13+1);
+szel = (rand()%13+1 - rand()%13+1);
 
 loves = false;
 lott = false;

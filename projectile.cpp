@@ -51,7 +51,7 @@ _szel = szel;
 void Projectile :: esemeny(event ev){
 
 
-_flyX = _flyX -  (((_angle/15)*(_power+_szel))/4)  ;
+_flyX = _flyX -  (((_angle/15)*(_power)+_szel)/4)  ;
 _flyY =  _flyY +  (_power/2 -(_ido)/2) ;
 _ido = _ido - 1;
 

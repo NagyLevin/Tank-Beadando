@@ -21,6 +21,7 @@ public:
 
         virtual void esemeny(genv::event ev) override;
 
+        void getplayer(int player);
 
 };
 

@@ -15,7 +15,7 @@ GameEnd::GameEnd(Window* parent, int x, int y, int sx, int sy,string szoveg,int 
 void GameEnd::draw(){
 
 
-if(_lepes != _menu){
+    if(_lepes != _menu){
          gout << move_to(_x-_sx,_y) << color(255,255,255) << font("LiberationSans-BoldItalic.ttf",_sy,true) << text(_szoveg);
 
     }
@@ -54,6 +54,4 @@ if(ev.keycode == 'w'){
 
 
 }
-
-
 

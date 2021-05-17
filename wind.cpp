@@ -17,18 +17,19 @@ void Wind::drawshow(int ertek){
 
 
 if(ertek > 0){
-gout << move_to(_x,_y) << color(255,255,255) << line(-10,10);
-gout << move_to(_x,_y) << color(255,255,255) << line(-10,-10);
-gout << move_to(_x,_y ) << color(255,255,255) << line(-20,0);
-}
-gout << move_to(_x-_sx,_y-_sy) << color(255,255,255) << text(to_string(ertek));
-
-if(ertek < 0){
 
 gout << move_to(_x,_y) << color(255,255,255) << line(10,-10);
 gout << move_to(_x,_y) << color(255,255,255) << line(10,10);
 gout << move_to(_x,_y) << color(255,255,255) << line(20,0);
+}
+gout << move_to(_x-10,_y+25) << color(255,255,255) << text(to_string(ertek));
 
+if(ertek < 0){
+
+
+gout << move_to(_x,_y) << color(255,255,255) << line(-10,10);
+gout << move_to(_x,_y) << color(255,255,255) << line(-10,-10);
+gout << move_to(_x,_y ) << color(255,255,255) << line(-20,0);
 }
 
 

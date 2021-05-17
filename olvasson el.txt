@@ -1,0 +1,13 @@
+Tisztelt Értékelő!
+
+A tankos játékot választottam beadandónak.
+A menukben a navigáció az "s" és "w" velt történik, illetve enterrel lehet valamit elfogadni.
+A tankokat lehet az "a" val és a "d" vel jobbra, balra mozgatni.
+A tank csövének állását lehet állítani billentyűzet nyilaival, vagy az ablakban megjelenő gombokkal.
+Tüzelni vagy a szóközbillentyűvel lehet vagy a "fire" feliratú gombbal.
+A játék tartalmaz véletlenszerűen változó szélirányt is, amit az ablak tetején található nyilak jeleznek.
+Jó játékot kívánok!
+
+Tisztelettel:
+
+Szabó Levente
