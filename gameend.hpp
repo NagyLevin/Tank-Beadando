@@ -8,12 +8,12 @@
 class GameEnd : public Properties {
 protected:
         string _szoveg;
-
+        int _menu = 0;
 
 
 public:
-
-    GameEnd( Window *parent,int x, int y, int sx, int sy,string szoveg);
+    int _lepes = 0;
+    GameEnd( Window *parent,int x, int y, int sx, int sy,string szoveg,int menu);
 
 
 

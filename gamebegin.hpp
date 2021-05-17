@@ -9,11 +9,12 @@ class GameBegin : public Properties {
 protected:
 
     string _szoveg;
+    int _menu;
 
 
 public:
-
-    GameBegin( Window *parent,int x, int y, int sx, int sy,string szoveg);
+     int _lepes;
+    GameBegin( Window *parent,int x, int y, int sx, int sy,string szoveg,int menu);
 
 
 

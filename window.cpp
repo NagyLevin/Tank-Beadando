@@ -111,13 +111,13 @@ void Window::Gamestarter(Window * win){
     TextWidget(win,475,470,50,50,"READY");//fire
     TextWidget(win,770,480,50,50,"FUEL");//fuel
 
-    GameEnd(win,_XX/3,_YY/3,50,60,"GAME OVER");
-    GameEnd(win,_XX/3,_YY/3+75,-20,40,"New Game");
-    GameEnd(win,_XX/3,_YY/3+125,-50,40,"Menu");
+    GameEnd(win,_XX/3,_YY/3,50,60,"GAME OVER",-1);
+    GameEnd(win,_XX/3,_YY/3+75,-20,40,"New Game",1);
+    GameEnd(win,_XX/3,_YY/3+125,-50,40,"Menu",2);
 
-    GameBegin(win,_XX/3,_YY/3-100,50,65,"TANK WARS");
-    GameBegin(win,_XX/3,_YY/3+50,-100,40,"Start");
-    GameBegin(win,_XX/3,_YY/3+100,-100,40,"Help");
+    GameBegin(win,_XX/3,_YY/3-100,50,65,"TANK WARS",-1);
+    GameBegin(win,_XX/3,_YY/3+50,-100,40,"Start",1);
+    GameBegin(win,_XX/3,_YY/3+100,-100,40,"Help",2);
 
 
     win->event_loop(win);
@@ -370,9 +370,8 @@ if(loves == true && lott == false){
             }
             else if(vprojectile[vprojectile.size()-1]->givelovedekX() > _XX ||  vprojectile[vprojectile.size()-1]->givelovedekX() < 0 || vprojectile[vprojectile.size()-1]->givelovedekY() < 0 || vprojectile[vprojectile.size()-1]->givelovedekY() > 400 ){
 
-              vprojectile[i] == nullptr;
-             // delete vprojectile[i];
-              lott = true;
+            vprojectile[i] == nullptr;
+            lott = true;
 
 
 
@@ -415,7 +414,7 @@ if(jatekvege == true){
 for (GameEnd * pge : vgameend) {
 
 pge->draw();
-
+pge->esemeny(ev);
 }
 
 
@@ -427,33 +426,43 @@ for(Tank * pt :vtank){
     pt->_fuel = 100;
 
 }
-
-
-}
-
-
-
-
-
-
-if(jatek == false){
-
-for (GameBegin * pgb : vgamebegin) {
-
-pgb->draw();
-
-}
-if(ev.keycode == key_enter){
+if(ev.keycode == key_enter && vgameend[1]->_lepes == 1){
    jatek = true;
 }
+if(ev.keycode == key_enter && vgameend[2]->_lepes == 2){
+   help = false;
+   jatek = false;
+}
+
+
+
+
+}
+
+
+
+
+
+
+if(jatek == false && help == false){
 
 for(Tank * pt :vtank){
     pt->_fuel = 100;
 
 }
+for (GameBegin * pgb : vgamebegin) {
+
+pgb->draw();
+pgb->esemeny(ev);
 
 
-
+}
+if(ev.keycode == key_enter && vgamebegin[1]->_lepes == 1){
+   jatek = true;
+}
+if(ev.keycode == key_enter && vgamebegin[2]->_lepes == 2){
+   help = true;
+}
 
 
 }
@@ -462,18 +471,6 @@ for(Tank * pt :vtank){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-        cout << jatekvege <<endl;
 
 
 
