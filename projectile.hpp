@@ -16,6 +16,9 @@ protected:
         double _flyX = 0;
         double _flyY = 0;
 
+        double _szel;
+
+
 
 public:
 
@@ -29,9 +32,9 @@ public:
             virtual void drawprojectile();
             virtual void esemeny(genv::event ev);
             void getpangle(double angle, double power);
-            int givelovedekX();
-            int givelovedekY();
-
+            void getszel(double szel);
+            double givelovedekX();
+            double givelovedekY();
 
 
 

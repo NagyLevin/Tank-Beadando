@@ -10,6 +10,7 @@
 #include "gameend.hpp"
 #include "gamebegin.hpp"
 #include "showplayer.hpp"
+#include "wind.hpp"
 
 #include <math.h>
 #include <iostream>
@@ -27,8 +28,8 @@ return 0;
 
 }
 
-
 }
+
 
 Window :: Window(int XX, int YY): _XX(XX),_YY(YY){
     gout.open(XX,YY);
@@ -78,6 +79,10 @@ void Window :: ShowPlayerWindow(ShowPlayer *psp){
 vshowplayer.push_back(psp);
 
 }
+void Window :: WindWindow(Wind *pw){
+vwind.push_back(pw);
+
+}
 
 
 
@@ -118,7 +123,7 @@ void Window::Gamestarter(Window * win){
     GameBegin(win,_XX/3,_YY/3-100,50,65,"TANK WARS",-1);
     GameBegin(win,_XX/3,_YY/3+50,-100,40,"Start",1);
 
-
+    Wind(win,_XX/2,20,20,-20);
 
     win->event_loop(win);
 }
@@ -128,12 +133,12 @@ void Window::Gamestarter(Window * win){
 
 void Window :: event_loop(Window * win) {
 event ev;
-gin.timer(30);
 
+gin.timer(30);
 
     while(gin >> ev && ev.keycode != key_escape) {
 
-    if(ev.type == ev_timer)
+    if(ev.type == ev_timer || ev.type == ev_mouse )
     {
         gout << move_to(0,0) <<color(0,0,0) << box(_XX,_YY); //torles
 
@@ -178,6 +183,15 @@ gin.timer(30);
 
 
 //showplayer
+
+//wind
+
+for (int i = 0;i < vwind.size();i++) {
+
+  vwind[i]->drawshow(szel);
+}
+
+//wind
 
 
 
@@ -310,7 +324,11 @@ for (int i = 0; i < vprojectile.size(); i++) {
 
 
 vprojectile[i]->esemeny(ev);
+
+
 vprojectile[vprojectile.size()-1]->drawprojectile();
+
+
 vprojectile[i]->getpangle(_angleW,_powerW);
 
 
@@ -340,7 +358,7 @@ Projectile *pp = new Projectile(win,vtankcso[playerW]->_x+vtankcso[playerW]->_sx
 vprojectile.push_back(pp);
 _selectedW = false;
 loves = true;
-
+vprojectile[vprojectile.size()-1]->getszel(szel); //szel odaadas
 }
 
 
@@ -397,7 +415,9 @@ if( lott == true && loves == true){
 
 playerW = PlayerCahnger(playerW);
 
-//cout << playerW <<endl;
+
+szel = (rand()%13+1);
+
 loves = false;
 lott = false;
 
@@ -467,7 +487,7 @@ pgb->esemeny(ev);
 
 }
 if(ev.keycode == key_enter && vgamebegin[1]->_lepes == true){
-        cout << "jartal itt" <<endl;
+
     jatekvege = false;
     jatek = true;
 }

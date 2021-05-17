@@ -16,7 +16,7 @@ void GameBegin::draw(){
 
 
 
-   int szovegmeret = _sy;
+
 
     if(_lepes != _menu){
          gout << move_to(_x-_sx,_y) << color(255,255,255) << font("LiberationSans-BoldItalic.ttf",_sy,true) << text(_szoveg);

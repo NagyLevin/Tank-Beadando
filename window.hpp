@@ -16,7 +16,7 @@ class Projectile;
 class GameEnd;
 class GameBegin;
 class ShowPlayer;
-
+class Wind;
 //forward deklaraciok
 using namespace std;
 using namespace genv;
@@ -34,11 +34,13 @@ protected:
     vector<GameEnd*> vgameend;
     vector<GameBegin*> vgamebegin;
     vector<ShowPlayer*> vshowplayer;
+    vector<Wind*> vwind;
 
     int _XX,_YY;
 
     double _angleW  = 0;
     double _powerW  = 0;
+    double szel = rand()%13+1;
     bool _selectedW = false;
 
     //game
@@ -67,6 +69,8 @@ public:
     void GameBeginWindow(GameBegin *pgb);
     void Gamestarter(Window * win);
     void ShowPlayerWindow(ShowPlayer *psp);
+    void WindWindow(Wind *pw);
+
 
     int PlayerCahnger(int player);
 

@@ -16,13 +16,6 @@ void Projectile::draw(){
 
 }
 
-
-
-
-
-
-
-
 void Projectile::drawprojectile(){
 
     int r = 5;
@@ -33,7 +26,7 @@ void Projectile::drawprojectile(){
     for(int dy =-r; dy<=r;dy++){
         if(dx*dx+dy*dy<=r*r){
 
-            gout << color(_tankszinR/2,_tankszinG/2,_tankszinB/2)<<move_to(_x+dx + _flyX,_y+dy +_flyY/2) <<dot;
+            gout << color(_tankszinR/2,_tankszinG/2,_tankszinB/2)<<move_to(_x+dx + _flyX ,_y+dy +_flyY/2) <<dot;
             _lovedekX =_x+dx + _flyX;
             _lovedekY = _y+dy +_flyY/2;
 
@@ -49,27 +42,32 @@ _angle = angle;
 _power = power;
 
 }
+void Projectile::getszel(double szel){
 
+_szel = szel;
+
+}
 
 void Projectile :: esemeny(event ev){
 
 
-_flyX = _flyX -  ((_angle/15)*_power)/4 ;
-_flyY =  _flyY +  _power/2 -(_ido)/2;
+_flyX = _flyX -  (((_angle/15)*(_power+_szel))/4)  ;
+_flyY =  _flyY +  (_power/2 -(_ido)/2) ;
 _ido = _ido - 1;
 
-
+//cout << (((_angle/15)*(_power+_szel))/4) <<endl;
 
 
 
 
 }
 
-int Projectile::givelovedekX(){
+double Projectile::givelovedekX(){
 return _lovedekX;
 }
 
 
-int Projectile::givelovedekY(){
+double Projectile::givelovedekY(){
 return _lovedekY;
 }
+
